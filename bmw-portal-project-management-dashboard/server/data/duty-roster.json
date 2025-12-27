@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1766865339439-242720d382097",
+    "date": "2024-12-08",
+    "firstName": "a",
+    "lastName": "a",
+    "phone": "1",
+    "email": "s@s.tr"
+  },
+  {
+    "id": "1766865304281-5651c1f348dc08",
+    "date": "2026-01-05",
+    "firstName": "Ali",
+    "lastName": "Yılmaz",
+    "phone": "+90 532 111 22 33",
+    "email": "ali.yilmaz@company.com"
+  },
+  {
+    "id": "1766865304281-e841e990617",
+    "date": "2026-01-06",
+    "firstName": "Ayşe",
+    "lastName": "Kaya",
+    "phone": "+90 533 222 33 44",
+    "email": "ayse.kaya@company.com"
+  },
+  {
+    "id": "1766865607475-8b661dc2d251f",
+    "date": "2026-01-15",
+    "firstName": "Hakan",
+    "lastName": "İşçi",
+    "phone": "+905432136283",
+    "email": "hakanisci@gmail.com"
+  }
+]

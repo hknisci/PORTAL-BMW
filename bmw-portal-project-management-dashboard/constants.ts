@@ -532,6 +532,7 @@ export const ASKGT_CATEGORIES: AskGTCategory[] = [
   { id: 'evam', name: 'Evam', icon: '🎯', color: '#EC4899' },
   { id: 'aware', name: 'Aware', icon: '👁️', color: '#14B8A6' },
   { id: 'openshift', name: 'OpenShift', icon: '🚀', color: '#EE0000' },
+  { id: 'devops', name: 'DevOps', icon: '🔧', color: '#0EA5E9' },
 ];
 
 // AskGT Makaleleri

@@ -1,0 +1,486 @@
+[
+  {
+    "id": "1766870996405-d339d0452d4b4",
+    "title": "Docker Container Güvenlik Best Practices",
+    "description": "Container'larınızı production ortamında güvenli hale getirmek için uygulamanız gereken temel prensipler.",
+    "content": "Container güvenliği, imaj tarama, runtime security ve network policy'leri kapsayan geniş bir alandır. Bu makalede en kritik güvenlik adımlarını inceleyeceğiz.",
+    "category": "devops",
+    "tags": [
+      "Evam"
+    ],
+    "publishDate": "2024-03-15",
+    "sourceUrl": "https://docs.docker.com/develop/security-best-practices/",
+    "author": {
+      "name": "Serkan Yıldız",
+      "department": "Devops"
+    },
+    "thumbnailUrl": "https://picsum.photos/seed/docker-security/400/200",
+    "likes": 0,
+    "views": 0,
+    "readTime": 5,
+    "isFavorite": false,
+    "updatedAt": "2025-12-27T21:32:39.370Z",
+    "createdAt": "2025-12-27T21:29:56.447Z"
+  },
+  {
+    "id": "1",
+    "title": "JBoss EAP 7.4 Performans Optimizasyonu",
+    "description": "JBoss EAP 7.4 üzerinde uygulama performansını artırma teknikleri ve en iyi uygulamalar.",
+    "content": "Bu makalede JBoss EAP 7.4 üzerinde uygulama performansını artırmak için kullanabileceğiniz teknikleri inceleyeceğiz. Thread pool ayarları, connection pool optimizasyonu ve JVM tuning konularını detaylı ele alacağız.",
+    "author": {
+      "name": "Ahmet Yılmaz",
+      "department": "Middleware Team"
+    },
+    "category": "jboss",
+    "tags": [
+      "performance",
+      "optimization",
+      "jboss-eap"
+    ],
+    "publishDate": "2024-01-15",
+    "readTime": 8,
+    "likes": 24,
+    "views": 156,
+    "thumbnailUrl": "https://picsum.photos/seed/jboss-performance/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform"
+  },
+  {
+    "id": "2",
+    "title": "JBoss Domain Mode Konfigürasyonu",
+    "description": "JBoss EAP'ta domain mode kurulumu ve yönetimi için adım adım rehber.",
+    "content": "Domain mode, birden fazla JBoss sunucusunu merkezi olarak yönetmenizi sağlar. Bu makalede domain controller, host controller ve server group kavramlarını inceleyeceğiz.",
+    "author": {
+      "name": "Mehmet Kaya",
+      "department": "Middleware Team"
+    },
+    "category": "jboss",
+    "tags": [
+      "domain-mode",
+      "clustering",
+      "configuration"
+    ],
+    "publishDate": "2024-02-10",
+    "readTime": 12,
+    "likes": 31,
+    "views": 203,
+    "thumbnailUrl": "https://picsum.photos/seed/jboss-domain/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform"
+  },
+  {
+    "id": "3",
+    "title": "WebSphere Liberty ile Microservices",
+    "description": "IBM WebSphere Liberty kullanarak microservices mimarisi oluşturma.",
+    "content": "WebSphere Liberty, hafif yapısı ve hızlı başlama süresiyle microservices için ideal bir platformdur. MicroProfile desteği ile modern uygulama geliştirme pratiklerini inceleyeceğiz.",
+    "author": {
+      "name": "Zeynep Demir",
+      "department": "Middleware Team"
+    },
+    "category": "websphere",
+    "tags": [
+      "liberty",
+      "microservices",
+      "microprofile"
+    ],
+    "publishDate": "2024-01-20",
+    "readTime": 10,
+    "likes": 18,
+    "views": 142,
+    "thumbnailUrl": "https://picsum.photos/seed/websphere-liberty/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.ibm.com/docs/en/was-liberty"
+  },
+  {
+    "id": "4",
+    "title": "WebSphere Traditional JDBC Datasource Yapılandırması",
+    "description": "WebSphere Application Server'da JDBC datasource oluşturma ve yönetimi.",
+    "content": "Bu rehberde WebSphere Traditional üzerinde Oracle ve DB2 için JDBC provider ve datasource yapılandırmasını adım adım anlatacağız. Connection pooling ve tuning ipuçları da dahil.",
+    "author": {
+      "name": "Can Özkan",
+      "department": "Middleware Team"
+    },
+    "category": "websphere",
+    "tags": [
+      "jdbc",
+      "datasource",
+      "database"
+    ],
+    "publishDate": "2024-03-05",
+    "readTime": 7,
+    "likes": 22,
+    "views": 178,
+    "thumbnailUrl": "https://picsum.photos/seed/websphere-jdbc/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.ibm.com/docs/en/was"
+  },
+  {
+    "id": "5",
+    "title": "Nginx Reverse Proxy ve Load Balancing",
+    "description": "Nginx ile yüksek erişilebilirlik için reverse proxy ve load balancing konfigürasyonu.",
+    "content": "Nginx'in güçlü reverse proxy özelliklerini kullanarak uygulamalarınız için load balancing yapılandırmasını öğrenin. Upstream tanımları, health check ve failover senaryolarını ele alacağız.",
+    "author": {
+      "name": "Emre Aydın",
+      "department": "Middleware Team"
+    },
+    "category": "nginx",
+    "tags": [
+      "reverse-proxy",
+      "load-balancing",
+      "high-availability"
+    ],
+    "publishDate": "2024-02-28",
+    "readTime": 9,
+    "likes": 45,
+    "views": 312,
+    "thumbnailUrl": "https://picsum.photos/seed/nginx-lb/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://nginx.org/en/docs/"
+  },
+  {
+    "id": "6",
+    "title": "Nginx SSL/TLS Sertifika Yönetimi",
+    "description": "Nginx üzerinde SSL/TLS sertifikası kurulumu ve güvenlik best practices.",
+    "content": "HTTPS yapılandırması, sertifika yenileme, cipher suite seçimi ve HSTS gibi güvenlik başlıklarının Nginx üzerinde nasıl yapılandırılacağını öğrenin.",
+    "author": {
+      "name": "Selin Yıldız",
+      "department": "Middleware Team"
+    },
+    "category": "nginx",
+    "tags": [
+      "ssl",
+      "tls",
+      "security",
+      "certificates"
+    ],
+    "publishDate": "2024-03-12",
+    "readTime": 6,
+    "likes": 38,
+    "views": 267,
+    "thumbnailUrl": "https://picsum.photos/seed/nginx-ssl/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://nginx.org/en/docs/http/configuring_https_servers.html"
+  },
+  {
+    "id": "7",
+    "title": "Hazelcast Cluster Kurulumu",
+    "description": "Hazelcast IMDG ile dağıtık cache cluster oluşturma rehberi.",
+    "content": "Hazelcast'in embedded ve client-server modlarını karşılaştırarak, production ortamı için cluster kurulumunu adım adım gerçekleştireceğiz. Network konfigürasyonu ve discovery mekanizmalarını inceleyeceğiz.",
+    "author": {
+      "name": "Burak Şahin",
+      "department": "Middleware Team"
+    },
+    "category": "hazelcast",
+    "tags": [
+      "cluster",
+      "distributed-cache",
+      "imdg"
+    ],
+    "publishDate": "2024-01-25",
+    "readTime": 11,
+    "likes": 29,
+    "views": 189,
+    "thumbnailUrl": "https://picsum.photos/seed/hazelcast-cluster/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://docs.hazelcast.com/"
+  },
+  {
+    "id": "8",
+    "title": "Hazelcast Near Cache Stratejileri",
+    "description": "Hazelcast Near Cache ile okuma performansını optimize etme teknikleri.",
+    "content": "Near Cache, sık erişilen verileri client tarafında cache'leyerek latency'yi dramatik şekilde azaltır. Invalidation stratejileri ve TTL ayarlarını detaylı inceleyeceğiz.",
+    "author": {
+      "name": "Deniz Arslan",
+      "department": "Middleware Team"
+    },
+    "category": "hazelcast",
+    "tags": [
+      "near-cache",
+      "performance",
+      "caching"
+    ],
+    "publishDate": "2024-04-02",
+    "readTime": 8,
+    "likes": 21,
+    "views": 145,
+    "thumbnailUrl": "https://picsum.photos/seed/hazelcast-nearcache/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://docs.hazelcast.com/hazelcast/latest/clients/java#near-cache"
+  },
+  {
+    "id": "9",
+    "title": "Provenir Decision Engine Entegrasyonu",
+    "description": "Provenir karar motoru ile bankacılık uygulamalarında risk değerlendirmesi.",
+    "content": "Provenir'in low-code karar motoru platformunu kullanarak kredi skorlama ve risk analizi süreçlerini nasıl otomatize edebileceğinizi öğrenin. API entegrasyonu ve workflow tasarımı konularını ele alacağız.",
+    "author": {
+      "name": "Ayşe Korkmaz",
+      "department": "Risk Systems"
+    },
+    "category": "provenir",
+    "tags": [
+      "decision-engine",
+      "risk",
+      "integration"
+    ],
+    "publishDate": "2024-02-15",
+    "readTime": 14,
+    "likes": 16,
+    "views": 98,
+    "thumbnailUrl": "https://picsum.photos/seed/provenir-decision/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.provenir.com/platform/"
+  },
+  {
+    "id": "10",
+    "title": "Provenir Workflow Tasarımı Best Practices",
+    "description": "Provenir'de etkili ve sürdürülebilir workflow tasarımı için ipuçları.",
+    "content": "Karmaşık iş kurallarını Provenir üzerinde modellerken dikkat edilmesi gereken noktalar, versiyon yönetimi ve test stratejileri hakkında kapsamlı bir rehber.",
+    "author": {
+      "name": "Murat Çelik",
+      "department": "Risk Systems"
+    },
+    "category": "provenir",
+    "tags": [
+      "workflow",
+      "best-practices",
+      "design"
+    ],
+    "publishDate": "2024-03-20",
+    "readTime": 10,
+    "likes": 12,
+    "views": 76,
+    "thumbnailUrl": "https://picsum.photos/seed/provenir-workflow/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.provenir.com/resources/"
+  },
+  {
+    "id": "11",
+    "title": "Powercurve Strateji Yönetimi",
+    "description": "Experian Powercurve ile kredi karar stratejilerinin oluşturulması ve yönetimi.",
+    "content": "Powercurve Strategy Management modülünü kullanarak kredi başvuru süreçlerinde otomatik karar verme mekanizmalarını nasıl kuracağınızı öğrenin.",
+    "author": {
+      "name": "Fatma Güneş",
+      "department": "Credit Systems"
+    },
+    "category": "powercurve",
+    "tags": [
+      "strategy",
+      "credit-decision",
+      "automation"
+    ],
+    "publishDate": "2024-01-30",
+    "readTime": 13,
+    "likes": 19,
+    "views": 112,
+    "thumbnailUrl": "https://picsum.photos/seed/powercurve-strategy/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://www.experian.com/business/solutions/powercurve"
+  },
+  {
+    "id": "12",
+    "title": "Powercurve Originations Konfigürasyonu",
+    "description": "Powercurve Originations modülünün kurulumu ve yapılandırması.",
+    "content": "Kredi başvuru süreçlerini dijitalleştirmek için Powercurve Originations modülünün teknik kurulumu, entegrasyon noktaları ve customization seçeneklerini inceleyeceğiz.",
+    "author": {
+      "name": "Ali Yılmaz",
+      "department": "Credit Systems"
+    },
+    "category": "powercurve",
+    "tags": [
+      "originations",
+      "configuration",
+      "credit"
+    ],
+    "publishDate": "2024-04-10",
+    "readTime": 15,
+    "likes": 14,
+    "views": 89,
+    "thumbnailUrl": "https://picsum.photos/seed/powercurve-originations/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.experian.com/business/solutions/powercurve"
+  },
+  {
+    "id": "13",
+    "title": "Metaco Harmonize Cüzdan Yönetimi",
+    "description": "Metaco Harmonize platformunda dijital varlık cüzdanlarının güvenli yönetimi.",
+    "content": "Kurumsal düzeyde dijital varlık saklama için Metaco Harmonize'ın cüzdan oluşturma, key management ve transaction signing süreçlerini detaylı inceleyeceğiz.",
+    "author": {
+      "name": "Kerem Aktaş",
+      "department": "Digital Assets"
+    },
+    "category": "metaco",
+    "tags": [
+      "wallet",
+      "custody",
+      "digital-assets"
+    ],
+    "publishDate": "2024-02-20",
+    "readTime": 12,
+    "likes": 27,
+    "views": 134,
+    "thumbnailUrl": "https://picsum.photos/seed/metaco-wallet/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.metaco.com/platform/"
+  },
+  {
+    "id": "14",
+    "title": "Metaco API Entegrasyonu",
+    "description": "Metaco REST API'leri ile bankacılık sistemlerine entegrasyon.",
+    "content": "Metaco'nun RESTful API'lerini kullanarak mevcut bankacılık core sistemleriyle entegrasyon sağlama, authentication, webhook yapılandırması ve error handling konularını ele alacağız.",
+    "author": {
+      "name": "Ece Yıldırım",
+      "department": "Digital Assets"
+    },
+    "category": "metaco",
+    "tags": [
+      "api",
+      "integration",
+      "rest"
+    ],
+    "publishDate": "2024-03-25",
+    "readTime": 9,
+    "likes": 23,
+    "views": 118,
+    "thumbnailUrl": "https://picsum.photos/seed/metaco-api/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://www.metaco.com/platform/"
+  },
+  {
+    "id": "15",
+    "title": "Evam Real-Time Marketing Kampanyaları",
+    "description": "Evam platformunda gerçek zamanlı pazarlama kampanyası oluşturma.",
+    "content": "Evam'ın CEP (Complex Event Processing) motorunu kullanarak müşteri davranışlarına anlık tepki veren pazarlama kampanyalarının tasarımı ve implementasyonunu öğrenin.",
+    "author": {
+      "name": "Gizem Öztürk",
+      "department": "Marketing Tech"
+    },
+    "category": "evam",
+    "tags": [
+      "real-time",
+      "marketing",
+      "campaigns"
+    ],
+    "publishDate": "2024-01-18",
+    "readTime": 11,
+    "likes": 33,
+    "views": 198,
+    "thumbnailUrl": "https://picsum.photos/seed/evam-campaign/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.evam.com/products/"
+  },
+  {
+    "id": "16",
+    "title": "Evam Customer Journey Mapping",
+    "description": "Evam ile müşteri yolculuğu haritalama ve analizi.",
+    "content": "Omnichannel müşteri deneyimi için Evam'da customer journey tanımlama, touchpoint yönetimi ve journey analytics özelliklerinin kullanımını detaylı anlatacağız.",
+    "author": {
+      "name": "Oğuz Kara",
+      "department": "Marketing Tech"
+    },
+    "category": "evam",
+    "tags": [
+      "customer-journey",
+      "analytics",
+      "omnichannel"
+    ],
+    "publishDate": "2024-04-05",
+    "readTime": 10,
+    "likes": 28,
+    "views": 167,
+    "thumbnailUrl": "https://picsum.photos/seed/evam-journey/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.evam.com/products/"
+  },
+  {
+    "id": "17",
+    "title": "Aware Biometrik Kimlik Doğrulama",
+    "description": "Aware platformu ile biyometrik kimlik doğrulama sistemleri kurulumu.",
+    "content": "Yüz tanıma, parmak izi ve ses tanıma teknolojilerini Aware SDK'ları kullanarak bankacılık uygulamalarına entegre etme rehberi. Liveness detection ve anti-spoofing konularını ele alacağız.",
+    "author": {
+      "name": "Hakan Tekin",
+      "department": "Security Systems"
+    },
+    "category": "aware",
+    "tags": [
+      "biometrics",
+      "authentication",
+      "security"
+    ],
+    "publishDate": "2024-02-05",
+    "readTime": 13,
+    "likes": 41,
+    "views": 234,
+    "thumbnailUrl": "https://picsum.photos/seed/aware-biometric/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://www.aware.com/biometrics/"
+  },
+  {
+    "id": "18",
+    "title": "Aware WebEnroll Entegrasyonu",
+    "description": "Aware WebEnroll ile web tabanlı biyometrik kayıt süreçleri.",
+    "content": "WebEnroll SDK'sını kullanarak tarayıcı üzerinden biyometrik veri toplama, quality check ve enrollment süreçlerinin implementasyonunu adım adım anlatacağız.",
+    "author": {
+      "name": "Sibel Aksoy",
+      "department": "Security Systems"
+    },
+    "category": "aware",
+    "tags": [
+      "webenroll",
+      "enrollment",
+      "sdk"
+    ],
+    "publishDate": "2024-03-15",
+    "readTime": 8,
+    "likes": 25,
+    "views": 156,
+    "thumbnailUrl": "https://picsum.photos/seed/aware-webenroll/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://www.aware.com/biometrics/"
+  },
+  {
+    "id": "19",
+    "title": "OpenShift Container Platform Kurulumu",
+    "description": "Red Hat OpenShift Container Platform 4.x kurulum ve yapılandırma rehberi.",
+    "content": "OpenShift 4.x'in IPI (Installer-Provisioned Infrastructure) ve UPI (User-Provisioned Infrastructure) kurulum yöntemlerini, cluster sizing ve network yapılandırmasını detaylı inceleyeceğiz.",
+    "author": {
+      "name": "Volkan Erdoğan",
+      "department": "Middleware Team"
+    },
+    "category": "openshift",
+    "tags": [
+      "installation",
+      "ocp4",
+      "infrastructure"
+    ],
+    "publishDate": "2024-01-22",
+    "readTime": 16,
+    "likes": 52,
+    "views": 378,
+    "thumbnailUrl": "https://picsum.photos/seed/openshift-install/400/200",
+    "isFavorite": true,
+    "sourceUrl": "https://docs.openshift.com/container-platform/latest/installing/index.html"
+  },
+  {
+    "id": "20",
+    "title": "OpenShift GitOps ve ArgoCD",
+    "description": "OpenShift üzerinde GitOps pratikleri ve ArgoCD implementasyonu.",
+    "content": "OpenShift GitOps operatörü ile ArgoCD kurulumu, application deployment, sync stratejileri ve multi-cluster yönetimi konularını hands-on örneklerle öğrenin.",
+    "author": {
+      "name": "Ceren Yalçın",
+      "department": "Middleware Team"
+    },
+    "category": "openshift",
+    "tags": [
+      "gitops",
+      "argocd",
+      "cicd"
+    ],
+    "publishDate": "2024-04-08",
+    "readTime": 14,
+    "likes": 47,
+    "views": 289,
+    "thumbnailUrl": "https://picsum.photos/seed/openshift-gitops/400/200",
+    "isFavorite": false,
+    "sourceUrl": "https://docs.openshift.com/gitops/latest/understanding_openshift_gitops/about-redhat-openshift-gitops.html"
+  }
+]

@@ -7,7 +7,7 @@ import DutyRosterPage from './components/DutyRosterPage';
 import EnvanterPage from './components/EnvanterPage';
 import LoginPage from './components/LoginPage';
 import SessionTimeoutModal from './components/SessionTimeoutModal';
-import AskGTPageSimple from './components/AskGTPageSimple';
+import AskGTPage from "./components/AskGTPage";
 import { AuthContext } from './contexts/AuthContext';
 import { PAGE_CONFIG } from './constants';
 import PerformancePage from './components/PerformancePage';
@@ -37,7 +37,7 @@ const AppContent: React.FC = () => {
     }
 
     if (activePage === 'AskGT') {
-      return <AskGTPageSimple />;
+      return <AskGTPage />;
     }
 
     const config = PAGE_CONFIG[activePage];

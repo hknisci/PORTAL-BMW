@@ -12,7 +12,14 @@ interface AuthContextType {
 }
 
 export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
+import { useContext } from "react";
 
+// AuthContext senin dosyada hangi isimle tanımlıysa onu kullan
+export const useAuth = () => {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+  return ctx;
+};
 const SESSION_TIMEOUT = 10 * 60 * 1000; // 10 minutes
 const TIMEOUT_WARNING = 1 * 60 * 1000; // 1 minute before timeout
 
