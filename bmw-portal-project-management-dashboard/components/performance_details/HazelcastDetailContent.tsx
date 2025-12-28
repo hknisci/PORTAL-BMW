@@ -1,26 +1,50 @@
-import React from 'react';
-import DetailKpiCard from './common/DetailKpiCard';
-import PlaceholderTable from '../performance_tabs/common/PlaceholderTable';
+import React from "react";
+import DetailKpiCard from "./common/DetailKpiCard";
+import PlaceholderTable from "../performance_tabs/common/PlaceholderTable";
+import PlaceholderChart from "../performance_tabs/common/PlaceholderChart";
+import PlaceholderDonutChart from "../performance_tabs/common/PlaceholderDonutChart";
+import { PerformanceDetailProps } from "../../src/api/performanceTypes";
 
-const HazelcastDetailContent: React.FC = () => {
-    const mapHeaders = ["Map Name", "Size", "Cache Hits", "Cache Misses"];
-    const mapData = [
-        ["userSessions", 125430, "1.2M", 5400],
-        ["productCache", 50210, "8.5M", 12000],
-        ["configCache", 150, "500K", 120],
-    ];
+const fmt = (v: any) => {
+  if (v === null || v === undefined || v === "") return "-";
+  if (typeof v === "number") return Number.isFinite(v) ? v.toLocaleString("tr-TR") : "-";
+  return String(v);
+};
 
-    return (
-        <div className="space-y-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <DetailKpiCard title="Partition Migration" value="0" />
-                <DetailKpiCard title="Split-Brain" value="No" />
-                <DetailKpiCard title="Backup Count" value="1" />
-                <DetailKpiCard title="Swap Kullanımı" value="256" unit="MB" />
-            </div>
-            <PlaceholderTable title="Map Boyutları ve Cache Kullanımı" headers={mapHeaders} rows={mapData} />
-        </div>
-    );
+const HazelcastDetailContent: React.FC<PerformanceDetailProps> = ({ payload }) => {
+  const k = payload?.kpis || {};
+  const endpoints = Array.isArray(payload?.topEndpoints) ? payload!.topEndpoints! : [];
+  const logs = Array.isArray(payload?.errorLog) ? payload!.errorLog! : [];
+
+  const endpointHeaders = ["Operation", "Count", "Avg (ms)", "P95 (ms)", "Errors"];
+  const endpointRows = endpoints.map((e) => [e.name, e.count, e.avgMs ?? "-", e.p95Ms ?? "-", e.errors ?? "-"]);
+
+  const errorLogHeaders = ["Timestamp", "Level", "Message"];
+  const errorLogRows = logs.map((l) => [l.ts, l.level, l.message]);
+
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <DetailKpiCard title="CPU (%)" value={fmt(k.cpu)} />
+        <DetailKpiCard title="Memory (%)" value={fmt(k.memory)} />
+        <DetailKpiCard title="Disk (%)" value={fmt(k.disk)} />
+        <DetailKpiCard title="Latency (ms)" value={fmt(k.latencyMs)} />
+        <DetailKpiCard title="Error Rate (%)" value={fmt(k.errorRate)} />
+        <DetailKpiCard title="RPS" value={fmt(k.rps)} />
+        <DetailKpiCard title="Active Conn." value={fmt(k.activeConnections)} />
+        <DetailKpiCard title="Cluster Size" value={fmt(k.clusterSize ?? "-")} />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <PlaceholderDonutChart title="Cache Hit/Miss" />
+        <PlaceholderDonutChart title="Partition / Replica Health" />
+      </div>
+
+      <PlaceholderChart title="Operations / Latency Trend" />
+      <PlaceholderTable title="Top Operations" headers={endpointHeaders} rows={endpointRows} />
+      <PlaceholderTable title="Error Log Analizi" headers={errorLogHeaders} rows={errorLogRows} />
+    </div>
+  );
 };
 
 export default HazelcastDetailContent;

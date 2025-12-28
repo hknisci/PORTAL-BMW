@@ -1,9 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const { initPerformance } = require("./performance/index.cjs");
 
 const app = express();
 app.use(express.json({ limit: "5mb" }));
+
+/* ===================== DUTY ROSTER ===================== */
 
 const DATA_DIR = path.join(__dirname, "data");
 const DATA_FILE = path.join(DATA_DIR, "duty-roster.json");
@@ -257,3 +260,6 @@ app.delete("/api/askgt/articles/:id", (req, res) => {
   writeAskGT(next);
   res.json({ ok: true, items: next });
 });
+
+/* ===================== PERFORMANCE ===================== */
+initPerformance(app);

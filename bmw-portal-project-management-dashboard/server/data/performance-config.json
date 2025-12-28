@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "provider": "mock",
+  "intervalSeconds": 30,
+  "products": [
+    "httpd",
+    "nginx",
+    "jboss",
+    "websphere",
+    "ctg",
+    "hazelcast",
+    "provenir"
+  ],
+  "dynatrace": {
+    "baseUrl": "",
+    "apiToken": ""
+  },
+  "splunk": {
+    "baseUrl": "",
+    "token": ""
+  }
+}

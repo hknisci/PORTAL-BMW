@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (username: string, password: string): Promise<void> => {
     // Simulate LDAP authentication
-    if ((username.toLowerCase() === 'admin' && password === 'admin') || (username.toLowerCase() === 'user' && password === 'user')) {
+    if ((username.toLowerCase() === 'admin' && password === 'admin') || (username.toLowerCase() === 'user' && password === 'user')|| (username.toLowerCase() === 'hakanisc' && password === 'pass')) {
       const loggedInUser: User = {
         username,
         role: username.toLowerCase() === 'admin' ? 'Admin' : 'User',

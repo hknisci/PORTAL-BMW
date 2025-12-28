@@ -1,0 +1,574 @@
+{
+  "updatedAt": "2025-12-28T00:56:43.071Z",
+  "provider": "mock",
+  "data": {
+    "httpd": {
+      "product": "httpd",
+      "kpis": {
+        "cpu": 84,
+        "memory": 20,
+        "disk": 43,
+        "errorRate": 0.8,
+        "latencyMs": 268,
+        "rps": 4920,
+        "activeConnections": 13216
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/httpd/endpoint-1",
+          "count": 1188,
+          "avgMs": 1340,
+          "p95Ms": 2029,
+          "errors": 67
+        },
+        {
+          "name": "/api/httpd/endpoint-2",
+          "count": 3431,
+          "avgMs": 963,
+          "p95Ms": 1711,
+          "errors": 103
+        },
+        {
+          "name": "/api/httpd/endpoint-3",
+          "count": 9148,
+          "avgMs": 1319,
+          "p95Ms": 2328,
+          "errors": 52
+        },
+        {
+          "name": "/api/httpd/endpoint-4",
+          "count": 8812,
+          "avgMs": 576,
+          "p95Ms": 2317,
+          "errors": 14
+        },
+        {
+          "name": "/api/httpd/endpoint-5",
+          "count": 1275,
+          "avgMs": 1282,
+          "p95Ms": 735,
+          "errors": 42
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "INFO",
+          "message": "HTTPD sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "ERROR",
+          "message": "HTTPD sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "ERROR",
+          "message": "HTTPD sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "WARN",
+          "message": "HTTPD sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "ERROR",
+          "message": "HTTPD sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "ERROR",
+          "message": "HTTPD sample log line 6"
+        }
+      ]
+    },
+    "nginx": {
+      "product": "nginx",
+      "kpis": {
+        "cpu": 13,
+        "memory": 13,
+        "disk": 77,
+        "errorRate": 1.08,
+        "latencyMs": 1447,
+        "rps": 295,
+        "activeConnections": 10280
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/nginx/endpoint-1",
+          "count": 914,
+          "avgMs": 884,
+          "p95Ms": 2920,
+          "errors": 62
+        },
+        {
+          "name": "/api/nginx/endpoint-2",
+          "count": 3916,
+          "avgMs": 484,
+          "p95Ms": 1862,
+          "errors": 116
+        },
+        {
+          "name": "/api/nginx/endpoint-3",
+          "count": 8369,
+          "avgMs": 594,
+          "p95Ms": 1225,
+          "errors": 111
+        },
+        {
+          "name": "/api/nginx/endpoint-4",
+          "count": 1028,
+          "avgMs": 1434,
+          "p95Ms": 1150,
+          "errors": 4
+        },
+        {
+          "name": "/api/nginx/endpoint-5",
+          "count": 8113,
+          "avgMs": 177,
+          "p95Ms": 2455,
+          "errors": 116
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "WARN",
+          "message": "NGINX sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "INFO",
+          "message": "NGINX sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "WARN",
+          "message": "NGINX sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "INFO",
+          "message": "NGINX sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "INFO",
+          "message": "NGINX sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "ERROR",
+          "message": "NGINX sample log line 6"
+        }
+      ]
+    },
+    "jboss": {
+      "product": "jboss",
+      "kpis": {
+        "cpu": 26,
+        "memory": 46,
+        "disk": 90,
+        "errorRate": 1.73,
+        "latencyMs": 634,
+        "rps": 397,
+        "activeConnections": 10371
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/jboss/endpoint-1",
+          "count": 9115,
+          "avgMs": 655,
+          "p95Ms": 1133,
+          "errors": 24
+        },
+        {
+          "name": "/api/jboss/endpoint-2",
+          "count": 7372,
+          "avgMs": 119,
+          "p95Ms": 2256,
+          "errors": 86
+        },
+        {
+          "name": "/api/jboss/endpoint-3",
+          "count": 2200,
+          "avgMs": 1351,
+          "p95Ms": 2939,
+          "errors": 92
+        },
+        {
+          "name": "/api/jboss/endpoint-4",
+          "count": 2540,
+          "avgMs": 492,
+          "p95Ms": 947,
+          "errors": 2
+        },
+        {
+          "name": "/api/jboss/endpoint-5",
+          "count": 2262,
+          "avgMs": 1435,
+          "p95Ms": 1396,
+          "errors": 109
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "WARN",
+          "message": "JBOSS sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "ERROR",
+          "message": "JBOSS sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "ERROR",
+          "message": "JBOSS sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "INFO",
+          "message": "JBOSS sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "INFO",
+          "message": "JBOSS sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "WARN",
+          "message": "JBOSS sample log line 6"
+        }
+      ]
+    },
+    "websphere": {
+      "product": "websphere",
+      "kpis": {
+        "cpu": 30,
+        "memory": 28,
+        "disk": 67,
+        "errorRate": 1.61,
+        "latencyMs": 474,
+        "rps": 3925,
+        "activeConnections": 18924
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/websphere/endpoint-1",
+          "count": 4500,
+          "avgMs": 1008,
+          "p95Ms": 2549,
+          "errors": 60
+        },
+        {
+          "name": "/api/websphere/endpoint-2",
+          "count": 3931,
+          "avgMs": 1493,
+          "p95Ms": 1657,
+          "errors": 79
+        },
+        {
+          "name": "/api/websphere/endpoint-3",
+          "count": 9107,
+          "avgMs": 1217,
+          "p95Ms": 2487,
+          "errors": 31
+        },
+        {
+          "name": "/api/websphere/endpoint-4",
+          "count": 4403,
+          "avgMs": 882,
+          "p95Ms": 1836,
+          "errors": 4
+        },
+        {
+          "name": "/api/websphere/endpoint-5",
+          "count": 157,
+          "avgMs": 1020,
+          "p95Ms": 300,
+          "errors": 84
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "WARN",
+          "message": "WEBSPHERE sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "ERROR",
+          "message": "WEBSPHERE sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "INFO",
+          "message": "WEBSPHERE sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "INFO",
+          "message": "WEBSPHERE sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "WARN",
+          "message": "WEBSPHERE sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "WARN",
+          "message": "WEBSPHERE sample log line 6"
+        }
+      ]
+    },
+    "ctg": {
+      "product": "ctg",
+      "kpis": {
+        "cpu": 31,
+        "memory": 20,
+        "disk": 31,
+        "errorRate": 1.28,
+        "latencyMs": 742,
+        "rps": 2409,
+        "activeConnections": 13106
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/ctg/endpoint-1",
+          "count": 6081,
+          "avgMs": 1199,
+          "p95Ms": 1992,
+          "errors": 9
+        },
+        {
+          "name": "/api/ctg/endpoint-2",
+          "count": 5405,
+          "avgMs": 1279,
+          "p95Ms": 2259,
+          "errors": 98
+        },
+        {
+          "name": "/api/ctg/endpoint-3",
+          "count": 4345,
+          "avgMs": 619,
+          "p95Ms": 325,
+          "errors": 16
+        },
+        {
+          "name": "/api/ctg/endpoint-4",
+          "count": 4538,
+          "avgMs": 780,
+          "p95Ms": 557,
+          "errors": 93
+        },
+        {
+          "name": "/api/ctg/endpoint-5",
+          "count": 7604,
+          "avgMs": 1386,
+          "p95Ms": 741,
+          "errors": 76
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "ERROR",
+          "message": "CTG sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "ERROR",
+          "message": "CTG sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "WARN",
+          "message": "CTG sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "ERROR",
+          "message": "CTG sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "ERROR",
+          "message": "CTG sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "INFO",
+          "message": "CTG sample log line 6"
+        }
+      ]
+    },
+    "hazelcast": {
+      "product": "hazelcast",
+      "kpis": {
+        "cpu": 62,
+        "memory": 38,
+        "disk": 48,
+        "errorRate": 2.29,
+        "latencyMs": 669,
+        "rps": 4816,
+        "activeConnections": 17012
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/hazelcast/endpoint-1",
+          "count": 809,
+          "avgMs": 890,
+          "p95Ms": 334,
+          "errors": 56
+        },
+        {
+          "name": "/api/hazelcast/endpoint-2",
+          "count": 247,
+          "avgMs": 521,
+          "p95Ms": 2008,
+          "errors": 87
+        },
+        {
+          "name": "/api/hazelcast/endpoint-3",
+          "count": 1181,
+          "avgMs": 1210,
+          "p95Ms": 887,
+          "errors": 56
+        },
+        {
+          "name": "/api/hazelcast/endpoint-4",
+          "count": 5884,
+          "avgMs": 415,
+          "p95Ms": 1566,
+          "errors": 57
+        },
+        {
+          "name": "/api/hazelcast/endpoint-5",
+          "count": 8039,
+          "avgMs": 512,
+          "p95Ms": 1897,
+          "errors": 21
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "INFO",
+          "message": "HAZELCAST sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "WARN",
+          "message": "HAZELCAST sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "WARN",
+          "message": "HAZELCAST sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "WARN",
+          "message": "HAZELCAST sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "ERROR",
+          "message": "HAZELCAST sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "ERROR",
+          "message": "HAZELCAST sample log line 6"
+        }
+      ]
+    },
+    "provenir": {
+      "product": "provenir",
+      "kpis": {
+        "cpu": 8,
+        "memory": 83,
+        "disk": 84,
+        "errorRate": 2.55,
+        "latencyMs": 618,
+        "rps": 1491,
+        "activeConnections": 3918
+      },
+      "topEndpoints": [
+        {
+          "name": "/api/provenir/endpoint-1",
+          "count": 6760,
+          "avgMs": 798,
+          "p95Ms": 2094,
+          "errors": 67
+        },
+        {
+          "name": "/api/provenir/endpoint-2",
+          "count": 7579,
+          "avgMs": 539,
+          "p95Ms": 2599,
+          "errors": 12
+        },
+        {
+          "name": "/api/provenir/endpoint-3",
+          "count": 8284,
+          "avgMs": 692,
+          "p95Ms": 1092,
+          "errors": 21
+        },
+        {
+          "name": "/api/provenir/endpoint-4",
+          "count": 9609,
+          "avgMs": 230,
+          "p95Ms": 1168,
+          "errors": 90
+        },
+        {
+          "name": "/api/provenir/endpoint-5",
+          "count": 4424,
+          "avgMs": 951,
+          "p95Ms": 461,
+          "errors": 62
+        }
+      ],
+      "errorLog": [
+        {
+          "ts": "2025-12-28T00:56:43.070Z",
+          "level": "ERROR",
+          "message": "PROVENIR sample log line 1"
+        },
+        {
+          "ts": "2025-12-28T00:55:43.070Z",
+          "level": "INFO",
+          "message": "PROVENIR sample log line 2"
+        },
+        {
+          "ts": "2025-12-28T00:54:43.070Z",
+          "level": "WARN",
+          "message": "PROVENIR sample log line 3"
+        },
+        {
+          "ts": "2025-12-28T00:53:43.070Z",
+          "level": "INFO",
+          "message": "PROVENIR sample log line 4"
+        },
+        {
+          "ts": "2025-12-28T00:52:43.070Z",
+          "level": "INFO",
+          "message": "PROVENIR sample log line 5"
+        },
+        {
+          "ts": "2025-12-28T00:51:43.070Z",
+          "level": "INFO",
+          "message": "PROVENIR sample log line 6"
+        }
+      ]
+    }
+  },
+  "lastError": null
+}
