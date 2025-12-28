@@ -1,84 +1,84 @@
 {
-  "updatedAt": "2025-12-28T00:56:43.071Z",
+  "updatedAt": "2025-12-28T00:57:13.071Z",
   "provider": "mock",
   "data": {
     "httpd": {
       "product": "httpd",
       "kpis": {
-        "cpu": 84,
-        "memory": 20,
-        "disk": 43,
-        "errorRate": 0.8,
-        "latencyMs": 268,
-        "rps": 4920,
-        "activeConnections": 13216
+        "cpu": 73,
+        "memory": 49,
+        "disk": 83,
+        "errorRate": 0.88,
+        "latencyMs": 1179,
+        "rps": 585,
+        "activeConnections": 4274
       },
       "topEndpoints": [
         {
           "name": "/api/httpd/endpoint-1",
-          "count": 1188,
-          "avgMs": 1340,
-          "p95Ms": 2029,
-          "errors": 67
+          "count": 5707,
+          "avgMs": 1429,
+          "p95Ms": 326,
+          "errors": 60
         },
         {
           "name": "/api/httpd/endpoint-2",
-          "count": 3431,
-          "avgMs": 963,
-          "p95Ms": 1711,
-          "errors": 103
+          "count": 2420,
+          "avgMs": 634,
+          "p95Ms": 1525,
+          "errors": 93
         },
         {
           "name": "/api/httpd/endpoint-3",
-          "count": 9148,
-          "avgMs": 1319,
-          "p95Ms": 2328,
-          "errors": 52
+          "count": 7407,
+          "avgMs": 439,
+          "p95Ms": 971,
+          "errors": 69
         },
         {
           "name": "/api/httpd/endpoint-4",
-          "count": 8812,
-          "avgMs": 576,
-          "p95Ms": 2317,
-          "errors": 14
+          "count": 5609,
+          "avgMs": 1238,
+          "p95Ms": 628,
+          "errors": 13
         },
         {
           "name": "/api/httpd/endpoint-5",
-          "count": 1275,
-          "avgMs": 1282,
-          "p95Ms": 735,
-          "errors": 42
+          "count": 4587,
+          "avgMs": 663,
+          "p95Ms": 691,
+          "errors": 23
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:57:13.071Z",
+          "level": "WARN",
           "message": "HTTPD sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "INFO",
           "message": "HTTPD sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "WARN",
           "message": "HTTPD sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:54:13.071Z",
+          "level": "INFO",
           "message": "HTTPD sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:53:13.071Z",
+          "level": "WARN",
           "message": "HTTPD sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:52:13.071Z",
+          "level": "WARN",
           "message": "HTTPD sample log line 6"
         }
       ]
@@ -86,80 +86,80 @@
     "nginx": {
       "product": "nginx",
       "kpis": {
-        "cpu": 13,
-        "memory": 13,
-        "disk": 77,
-        "errorRate": 1.08,
-        "latencyMs": 1447,
-        "rps": 295,
-        "activeConnections": 10280
+        "cpu": 14,
+        "memory": 23,
+        "disk": 25,
+        "errorRate": 2.57,
+        "latencyMs": 712,
+        "rps": 4891,
+        "activeConnections": 8643
       },
       "topEndpoints": [
         {
           "name": "/api/nginx/endpoint-1",
-          "count": 914,
-          "avgMs": 884,
-          "p95Ms": 2920,
-          "errors": 62
+          "count": 372,
+          "avgMs": 810,
+          "p95Ms": 1378,
+          "errors": 68
         },
         {
           "name": "/api/nginx/endpoint-2",
-          "count": 3916,
-          "avgMs": 484,
-          "p95Ms": 1862,
-          "errors": 116
+          "count": 3372,
+          "avgMs": 653,
+          "p95Ms": 2390,
+          "errors": 2
         },
         {
           "name": "/api/nginx/endpoint-3",
-          "count": 8369,
-          "avgMs": 594,
-          "p95Ms": 1225,
-          "errors": 111
+          "count": 7426,
+          "avgMs": 744,
+          "p95Ms": 2515,
+          "errors": 32
         },
         {
           "name": "/api/nginx/endpoint-4",
-          "count": 1028,
-          "avgMs": 1434,
-          "p95Ms": 1150,
-          "errors": 4
+          "count": 7029,
+          "avgMs": 477,
+          "p95Ms": 871,
+          "errors": 7
         },
         {
           "name": "/api/nginx/endpoint-5",
-          "count": 8113,
-          "avgMs": 177,
-          "p95Ms": 2455,
-          "errors": 116
+          "count": 2179,
+          "avgMs": 1245,
+          "p95Ms": 2804,
+          "errors": 103
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
+          "ts": "2025-12-28T00:57:13.071Z",
           "level": "WARN",
           "message": "NGINX sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "ERROR",
           "message": "NGINX sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "ERROR",
           "message": "NGINX sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
+          "ts": "2025-12-28T00:54:13.071Z",
           "level": "INFO",
           "message": "NGINX sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:53:13.071Z",
+          "level": "ERROR",
           "message": "NGINX sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:52:13.071Z",
+          "level": "WARN",
           "message": "NGINX sample log line 6"
         }
       ]
@@ -167,79 +167,79 @@
     "jboss": {
       "product": "jboss",
       "kpis": {
-        "cpu": 26,
-        "memory": 46,
-        "disk": 90,
-        "errorRate": 1.73,
-        "latencyMs": 634,
-        "rps": 397,
-        "activeConnections": 10371
+        "cpu": 78,
+        "memory": 33,
+        "disk": 54,
+        "errorRate": 1.92,
+        "latencyMs": 257,
+        "rps": 3456,
+        "activeConnections": 14764
       },
       "topEndpoints": [
         {
           "name": "/api/jboss/endpoint-1",
-          "count": 9115,
-          "avgMs": 655,
-          "p95Ms": 1133,
-          "errors": 24
+          "count": 8620,
+          "avgMs": 622,
+          "p95Ms": 2690,
+          "errors": 116
         },
         {
           "name": "/api/jboss/endpoint-2",
-          "count": 7372,
-          "avgMs": 119,
-          "p95Ms": 2256,
-          "errors": 86
+          "count": 9920,
+          "avgMs": 147,
+          "p95Ms": 2796,
+          "errors": 16
         },
         {
           "name": "/api/jboss/endpoint-3",
-          "count": 2200,
-          "avgMs": 1351,
-          "p95Ms": 2939,
-          "errors": 92
-        },
-        {
-          "name": "/api/jboss/endpoint-4",
-          "count": 2540,
-          "avgMs": 492,
-          "p95Ms": 947,
+          "count": 3056,
+          "avgMs": 1341,
+          "p95Ms": 1016,
           "errors": 2
         },
         {
+          "name": "/api/jboss/endpoint-4",
+          "count": 9579,
+          "avgMs": 1472,
+          "p95Ms": 2352,
+          "errors": 104
+        },
+        {
           "name": "/api/jboss/endpoint-5",
-          "count": 2262,
-          "avgMs": 1435,
-          "p95Ms": 1396,
-          "errors": 109
+          "count": 8742,
+          "avgMs": 1484,
+          "p95Ms": 2771,
+          "errors": 42
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:57:13.071Z",
+          "level": "INFO",
           "message": "JBOSS sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "WARN",
           "message": "JBOSS sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "INFO",
           "message": "JBOSS sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
+          "ts": "2025-12-28T00:54:13.071Z",
           "level": "INFO",
           "message": "JBOSS sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
+          "ts": "2025-12-28T00:53:13.071Z",
           "level": "INFO",
           "message": "JBOSS sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
+          "ts": "2025-12-28T00:52:13.071Z",
           "level": "WARN",
           "message": "JBOSS sample log line 6"
         }
@@ -248,80 +248,80 @@
     "websphere": {
       "product": "websphere",
       "kpis": {
-        "cpu": 30,
-        "memory": 28,
-        "disk": 67,
-        "errorRate": 1.61,
-        "latencyMs": 474,
-        "rps": 3925,
-        "activeConnections": 18924
+        "cpu": 52,
+        "memory": 76,
+        "disk": 37,
+        "errorRate": 1.23,
+        "latencyMs": 380,
+        "rps": 116,
+        "activeConnections": 15946
       },
       "topEndpoints": [
         {
           "name": "/api/websphere/endpoint-1",
-          "count": 4500,
-          "avgMs": 1008,
-          "p95Ms": 2549,
-          "errors": 60
+          "count": 1450,
+          "avgMs": 1212,
+          "p95Ms": 1302,
+          "errors": 70
         },
         {
           "name": "/api/websphere/endpoint-2",
-          "count": 3931,
-          "avgMs": 1493,
-          "p95Ms": 1657,
-          "errors": 79
+          "count": 7968,
+          "avgMs": 619,
+          "p95Ms": 1686,
+          "errors": 68
         },
         {
           "name": "/api/websphere/endpoint-3",
-          "count": 9107,
-          "avgMs": 1217,
-          "p95Ms": 2487,
-          "errors": 31
+          "count": 5367,
+          "avgMs": 251,
+          "p95Ms": 2882,
+          "errors": 64
         },
         {
           "name": "/api/websphere/endpoint-4",
-          "count": 4403,
-          "avgMs": 882,
-          "p95Ms": 1836,
-          "errors": 4
+          "count": 7251,
+          "avgMs": 864,
+          "p95Ms": 1990,
+          "errors": 96
         },
         {
           "name": "/api/websphere/endpoint-5",
-          "count": 157,
-          "avgMs": 1020,
-          "p95Ms": 300,
-          "errors": 84
+          "count": 2125,
+          "avgMs": 783,
+          "p95Ms": 828,
+          "errors": 21
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:57:13.071Z",
+          "level": "INFO",
           "message": "WEBSPHERE sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "INFO",
           "message": "WEBSPHERE sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "ERROR",
           "message": "WEBSPHERE sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:54:13.071Z",
+          "level": "WARN",
           "message": "WEBSPHERE sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
+          "ts": "2025-12-28T00:53:13.071Z",
           "level": "WARN",
           "message": "WEBSPHERE sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:52:13.071Z",
+          "level": "INFO",
           "message": "WEBSPHERE sample log line 6"
         }
       ]
@@ -329,79 +329,79 @@
     "ctg": {
       "product": "ctg",
       "kpis": {
-        "cpu": 31,
-        "memory": 20,
+        "cpu": 61,
+        "memory": 55,
         "disk": 31,
-        "errorRate": 1.28,
-        "latencyMs": 742,
-        "rps": 2409,
-        "activeConnections": 13106
+        "errorRate": 1.17,
+        "latencyMs": 1270,
+        "rps": 837,
+        "activeConnections": 1403
       },
       "topEndpoints": [
         {
           "name": "/api/ctg/endpoint-1",
-          "count": 6081,
-          "avgMs": 1199,
-          "p95Ms": 1992,
-          "errors": 9
+          "count": 2543,
+          "avgMs": 1179,
+          "p95Ms": 2165,
+          "errors": 90
         },
         {
           "name": "/api/ctg/endpoint-2",
-          "count": 5405,
-          "avgMs": 1279,
-          "p95Ms": 2259,
-          "errors": 98
+          "count": 7938,
+          "avgMs": 1487,
+          "p95Ms": 740,
+          "errors": 118
         },
         {
           "name": "/api/ctg/endpoint-3",
-          "count": 4345,
-          "avgMs": 619,
-          "p95Ms": 325,
-          "errors": 16
+          "count": 254,
+          "avgMs": 198,
+          "p95Ms": 1997,
+          "errors": 39
         },
         {
           "name": "/api/ctg/endpoint-4",
-          "count": 4538,
-          "avgMs": 780,
-          "p95Ms": 557,
-          "errors": 93
+          "count": 3938,
+          "avgMs": 316,
+          "p95Ms": 1941,
+          "errors": 101
         },
         {
           "name": "/api/ctg/endpoint-5",
-          "count": 7604,
-          "avgMs": 1386,
-          "p95Ms": 741,
-          "errors": 76
+          "count": 9723,
+          "avgMs": 550,
+          "p95Ms": 448,
+          "errors": 58
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
+          "ts": "2025-12-28T00:57:13.071Z",
           "level": "ERROR",
           "message": "CTG sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "INFO",
           "message": "CTG sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "ERROR",
           "message": "CTG sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
+          "ts": "2025-12-28T00:54:13.071Z",
           "level": "ERROR",
           "message": "CTG sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:53:13.071Z",
+          "level": "INFO",
           "message": "CTG sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
+          "ts": "2025-12-28T00:52:13.071Z",
           "level": "INFO",
           "message": "CTG sample log line 6"
         }
@@ -410,80 +410,80 @@
     "hazelcast": {
       "product": "hazelcast",
       "kpis": {
-        "cpu": 62,
-        "memory": 38,
-        "disk": 48,
-        "errorRate": 2.29,
-        "latencyMs": 669,
-        "rps": 4816,
-        "activeConnections": 17012
+        "cpu": 69,
+        "memory": 70,
+        "disk": 26,
+        "errorRate": 1.98,
+        "latencyMs": 705,
+        "rps": 464,
+        "activeConnections": 4602
       },
       "topEndpoints": [
         {
           "name": "/api/hazelcast/endpoint-1",
-          "count": 809,
-          "avgMs": 890,
-          "p95Ms": 334,
-          "errors": 56
+          "count": 8340,
+          "avgMs": 81,
+          "p95Ms": 1062,
+          "errors": 78
         },
         {
           "name": "/api/hazelcast/endpoint-2",
-          "count": 247,
-          "avgMs": 521,
-          "p95Ms": 2008,
-          "errors": 87
+          "count": 358,
+          "avgMs": 1216,
+          "p95Ms": 345,
+          "errors": 104
         },
         {
           "name": "/api/hazelcast/endpoint-3",
-          "count": 1181,
-          "avgMs": 1210,
-          "p95Ms": 887,
-          "errors": 56
+          "count": 5724,
+          "avgMs": 822,
+          "p95Ms": 1906,
+          "errors": 6
         },
         {
           "name": "/api/hazelcast/endpoint-4",
-          "count": 5884,
-          "avgMs": 415,
-          "p95Ms": 1566,
-          "errors": 57
+          "count": 7222,
+          "avgMs": 1298,
+          "p95Ms": 460,
+          "errors": 0
         },
         {
           "name": "/api/hazelcast/endpoint-5",
-          "count": 8039,
-          "avgMs": 512,
-          "p95Ms": 1897,
-          "errors": 21
+          "count": 5023,
+          "avgMs": 1028,
+          "p95Ms": 1651,
+          "errors": 114
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:57:13.071Z",
+          "level": "ERROR",
           "message": "HAZELCAST sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "INFO",
           "message": "HAZELCAST sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:55:13.071Z",
+          "level": "INFO",
           "message": "HAZELCAST sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
-          "level": "WARN",
+          "ts": "2025-12-28T00:54:13.071Z",
+          "level": "INFO",
           "message": "HAZELCAST sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
+          "ts": "2025-12-28T00:53:13.071Z",
           "level": "ERROR",
           "message": "HAZELCAST sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:52:13.071Z",
+          "level": "WARN",
           "message": "HAZELCAST sample log line 6"
         }
       ]
@@ -491,79 +491,79 @@
     "provenir": {
       "product": "provenir",
       "kpis": {
-        "cpu": 8,
-        "memory": 83,
-        "disk": 84,
-        "errorRate": 2.55,
-        "latencyMs": 618,
-        "rps": 1491,
-        "activeConnections": 3918
+        "cpu": 73,
+        "memory": 79,
+        "disk": 70,
+        "errorRate": 1.34,
+        "latencyMs": 700,
+        "rps": 4231,
+        "activeConnections": 11544
       },
       "topEndpoints": [
         {
           "name": "/api/provenir/endpoint-1",
-          "count": 6760,
-          "avgMs": 798,
-          "p95Ms": 2094,
-          "errors": 67
+          "count": 5945,
+          "avgMs": 81,
+          "p95Ms": 54,
+          "errors": 28
         },
         {
           "name": "/api/provenir/endpoint-2",
-          "count": 7579,
-          "avgMs": 539,
-          "p95Ms": 2599,
-          "errors": 12
+          "count": 2602,
+          "avgMs": 1438,
+          "p95Ms": 290,
+          "errors": 24
         },
         {
           "name": "/api/provenir/endpoint-3",
-          "count": 8284,
-          "avgMs": 692,
-          "p95Ms": 1092,
-          "errors": 21
+          "count": 9942,
+          "avgMs": 636,
+          "p95Ms": 1703,
+          "errors": 40
         },
         {
           "name": "/api/provenir/endpoint-4",
-          "count": 9609,
-          "avgMs": 230,
-          "p95Ms": 1168,
-          "errors": 90
+          "count": 5245,
+          "avgMs": 864,
+          "p95Ms": 441,
+          "errors": 43
         },
         {
           "name": "/api/provenir/endpoint-5",
-          "count": 4424,
-          "avgMs": 951,
-          "p95Ms": 461,
-          "errors": 62
+          "count": 1978,
+          "avgMs": 452,
+          "p95Ms": 2470,
+          "errors": 50
         }
       ],
       "errorLog": [
         {
-          "ts": "2025-12-28T00:56:43.070Z",
-          "level": "ERROR",
+          "ts": "2025-12-28T00:57:13.071Z",
+          "level": "WARN",
           "message": "PROVENIR sample log line 1"
         },
         {
-          "ts": "2025-12-28T00:55:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:56:13.071Z",
+          "level": "ERROR",
           "message": "PROVENIR sample log line 2"
         },
         {
-          "ts": "2025-12-28T00:54:43.070Z",
+          "ts": "2025-12-28T00:55:13.071Z",
           "level": "WARN",
           "message": "PROVENIR sample log line 3"
         },
         {
-          "ts": "2025-12-28T00:53:43.070Z",
+          "ts": "2025-12-28T00:54:13.071Z",
           "level": "INFO",
           "message": "PROVENIR sample log line 4"
         },
         {
-          "ts": "2025-12-28T00:52:43.070Z",
-          "level": "INFO",
+          "ts": "2025-12-28T00:53:13.071Z",
+          "level": "ERROR",
           "message": "PROVENIR sample log line 5"
         },
         {
-          "ts": "2025-12-28T00:51:43.070Z",
+          "ts": "2025-12-28T00:52:13.071Z",
           "level": "INFO",
           "message": "PROVENIR sample log line 6"
         }
