@@ -33,9 +33,7 @@ function normalizeSnapshotResponse(product: string, res: any): PerformanceSnapsh
   // OLD format: { ok, cache: { provider, updatedAt, data, lastError } }
   if (res?.cache) {
     const cache = res.cache;
-    const picked = product
-      ? (cache?.data ? cache.data[product] : null)
-      : (cache?.data || null);
+    const picked = product ? (cache?.data ? cache.data[product] : null) : cache?.data || null;
 
     return {
       product,
@@ -62,12 +60,11 @@ export async function getPerformanceSnapshot(product: string): Promise<Performan
   return normalizeSnapshotResponse(product, res);
 }
 
-export async function refreshPerformance(product: string): Promise<PerformanceSnapshot> {
+// NOTE: backend refresh şu an product bazlı değil (scheduler tüm ürünleri çekiyor).
+export async function refreshPerformance(_product: string): Promise<PerformanceSnapshot> {
   const r = await fetch(`/api/performance/refresh`, { method: "POST" });
   const res: any = await json<any>(r);
-
-  // refresh endpoint bazen { ok, cache } döndürüyor olabilir → normalize
-  return normalizeSnapshotResponse(product, res);
+  return normalizeSnapshotResponse(_product, res);
 }
 
 export async function refreshPerformanceAll(): Promise<void> {
@@ -77,7 +74,8 @@ export async function refreshPerformanceAll(): Promise<void> {
 
 export async function getPerformanceConfig(): Promise<any> {
   const r = await fetch(`/api/performance/config`);
-  return await json(r);
+  const res: any = await json<any>(r);
+  return res?.config ?? res; // ✅
 }
 
 export async function updatePerformanceConfig(payload: any): Promise<any> {
@@ -86,5 +84,6 @@ export async function updatePerformanceConfig(payload: any): Promise<any> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  return await json(r);
+  const res: any = await json<any>(r);
+  return res?.config ?? res; // ✅
 }

@@ -1,94 +1,27 @@
 {
   "enabled": true,
   "provider": "splunk",
-  "intervalSeconds": 60,
-  "products": ["httpd", "nginx", "jboss", "websphere", "ctg", "hazelcast", "provenir"],
-
+  "intervalSeconds": 30,
+  "products": [
+    "httpd",
+    "nginx",
+    "jboss",
+    "websphere",
+    "ctg",
+    "hazelcast",
+    "provenir"
+  ],
   "dynatrace": {
-    "baseUrl": "https://YOUR_ENV.live.dynatrace.com",
-    "apiToken": "DT_API_TOKEN",
-    "timeframe": "now-15m",
-    "entitySelector": {
-      "tagKeys": ["product", "app", "application", "component", "service"],
-      "nameContainsFallback": true
-    },
-    "products": {
-      "httpd": { "tagValue": "httpd", "nameContains": ["httpd", "apache"] },
-      "nginx": { "tagValue": "nginx", "nameContains": ["nginx"] },
-      "jboss": { "tagValue": "jboss", "nameContains": ["jboss", "eap", "wildfly"] },
-      "websphere": { "tagValue": "websphere", "nameContains": ["websphere", "was"] },
-      "ctg": { "tagValue": "ctg", "nameContains": ["ctg", "cics"] },
-      "hazelcast": { "tagValue": "hazelcast", "nameContains": ["hazelcast"] },
-      "provenir": { "tagValue": "provenir", "nameContains": ["provenir"] }
-    },
-    "kpis": {
-      "cpu": "builtin:host.cpu.usage",
-      "memory": "builtin:host.mem.usage",
-      "disk": "builtin:host.disk.usedPct",
-      "rps": "builtin:service.requestCount.server",
-      "latencyMs": "builtin:service.response.time",
-      "errorRate": "builtin:service.errors.server.rate",
-      "activeConnections": "builtin:tech.generic.networkConnections"
-    }
+    "baseUrl": "",
+    "apiToken": ""
   },
-
   "splunk": {
-    "baseUrl": "https://splunk.company.com:8089",
+    "baseUrl": "https://SPLUNK_HOST:8089",
     "token": "SPLUNK_TOKEN",
-    "earliest": "-15m",
-    "latest": "now",
-
-    "tagPriority": [
-      { "field": "product" },
-      { "field": "app" },
-      { "field": "application" },
-      { "field": "component" },
-      { "field": "service" }
+    "authScheme": "Bearer",
+    "indexes": [
+      "main"
     ],
-
-    "products": {
-      "httpd": {
-        "index": "main",
-        "sourcetypes": ["apache:access", "httpd:access", "access_combined"],
-        "tags": [{ "field": "product", "value": "httpd" }],
-        "hostPatterns": ["httpd", "apache"]
-      },
-      "nginx": {
-        "index": "main",
-        "sourcetypes": ["nginx:access", "nginx", "nginx:ingress"],
-        "tags": [{ "field": "product", "value": "nginx" }],
-        "hostPatterns": ["nginx"]
-      },
-      "jboss": {
-        "index": "main",
-        "sourcetypes": ["jboss:server", "eap:server", "wildfly:server", "jboss"],
-        "tags": [{ "field": "product", "value": "jboss" }],
-        "hostPatterns": ["jboss", "eap", "wildfly"]
-      },
-      "websphere": {
-        "index": "main",
-        "sourcetypes": ["was:systemout", "websphere:systemout", "websphere"],
-        "tags": [{ "field": "product", "value": "websphere" }],
-        "hostPatterns": ["websphere", "was"]
-      },
-      "ctg": {
-        "index": "main",
-        "sourcetypes": ["ctg:log", "cics:tg", "ctg"],
-        "tags": [{ "field": "product", "value": "ctg" }],
-        "hostPatterns": ["ctg", "cics"]
-      },
-      "hazelcast": {
-        "index": "main",
-        "sourcetypes": ["hazelcast:log", "hazelcast"],
-        "tags": [{ "field": "product", "value": "hazelcast" }],
-        "hostPatterns": ["hazelcast"]
-      },
-      "provenir": {
-        "index": "main",
-        "sourcetypes": ["provenir:log", "provenir"],
-        "tags": [{ "field": "product", "value": "provenir" }],
-        "hostPatterns": ["provenir"]
-      }
-    }
+    "windowMinutes": 15
   }
 }

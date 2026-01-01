@@ -1,96 +1,446 @@
 {
-  "updatedAt": "2025-12-28T01:15:43.025Z",
+  "updatedAt": "2026-01-01T19:30:31.002Z",
   "provider": "splunk",
   "data": {
     "httpd": {
       "product": "httpd",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"apache:access\" OR sourcetype=\"httpd:access\" OR sourcetype=\"access_combined\" ) product=\"httpd\" ( host=\"*httpd*\" OR host=\"*apache*\" )",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "httpd",
+        "baseSearch": "(product=\"httpd\" OR product=\"*httpd*\" OR app=\"httpd\" OR app=\"*httpd*\" OR application=\"httpd\" OR application=\"*httpd*\" OR service=\"httpd\" OR service=\"*httpd*\" OR component=\"httpd\" OR component=\"*httpd*\" OR subsystem=\"httpd\" OR subsystem=\"*httpd*\" OR domain=\"httpd\" OR domain=\"*httpd*\" OR team=\"httpd\" OR team=\"*httpd*\" OR owner=\"httpd\" OR owner=\"*httpd*\" OR managed_by=\"httpd\" OR managed_by=\"*httpd*\" OR management_zone=\"httpd\" OR management_zone=\"*httpd*\" OR mz=\"httpd\" OR mz=\"*httpd*\" OR env=\"httpd\" OR env=\"*httpd*\" OR environment=\"httpd\" OR environment=\"*httpd*\" OR k8s.app=\"httpd\" OR k8s.app=\"*httpd*\" OR k8s.app.name=\"httpd\" OR k8s.app.name=\"*httpd*\" OR k8s.container.name=\"httpd\" OR k8s.container.name=\"*httpd*\" OR k8s.namespace.name=\"httpd\" OR k8s.namespace.name=\"*httpd*\" OR kubernetes.container_name=\"httpd\" OR kubernetes.container_name=\"*httpd*\" OR kubernetes.pod_name=\"httpd\" OR kubernetes.pod_name=\"*httpd*\" OR kubernetes.namespace=\"httpd\" OR kubernetes.namespace=\"*httpd*\" OR namespace=\"httpd\" OR namespace=\"*httpd*\" OR pod=\"httpd\" OR pod=\"*httpd*\" OR container=\"httpd\" OR container=\"*httpd*\" OR container_name=\"httpd\" OR container_name=\"*httpd*\" OR process_group=\"httpd\" OR process_group=\"*httpd*\" OR processGroup=\"httpd\" OR processGroup=\"*httpd*\" OR process.name=\"httpd\" OR process.name=\"*httpd*\" OR process=\"httpd\" OR process=\"*httpd*\" OR pg=\"httpd\" OR pg=\"*httpd*\" OR host=\"httpd\" OR host=\"*httpd*\" OR host.name=\"httpd\" OR host.name=\"*httpd*\" OR hostname=\"httpd\" OR hostname=\"*httpd*\" OR tag=\"httpd\" OR tag=\"*httpd*\" OR tags=\"httpd\" OR tags=\"*httpd*\" OR label=\"httpd\" OR label=\"*httpd*\" OR labels=\"httpd\" OR labels=\"*httpd*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"httpd\" OR app=\"httpd\" OR application=\"httpd\" OR service=\"httpd\" OR component=\"httpd\" OR subsystem=\"httpd\" OR domain=\"httpd\" OR team=\"httpd\" OR owner=\"httpd\" OR managed_by=\"httpd\" OR management_zone=\"httpd\" OR mz=\"httpd\" OR env=\"httpd\" OR environment=\"httpd\" OR k8s.app=\"httpd\" OR k8s.app.name=\"httpd\" OR k8s.container.name=\"httpd\" OR k8s.namespace.name=\"httpd\" OR kubernetes.container_name=\"httpd\" OR kubernetes.pod_name=\"httpd\" OR kubernetes.namespace=\"httpd\" OR namespace=\"httpd\" OR pod=\"httpd\" OR container=\"httpd\" OR container_name=\"httpd\" OR process_group=\"httpd\" OR processGroup=\"httpd\" OR process.name=\"httpd\" OR process=\"httpd\" OR pg=\"httpd\" OR host=\"httpd\" OR host.name=\"httpd\" OR hostname=\"httpd\" OR tag=\"httpd\" OR tags=\"httpd\" OR label=\"httpd\" OR labels=\"httpd\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"httpd\" OR product=\"*httpd*\" OR app=\"httpd\" OR app=\"*httpd*\" OR application=\"httpd\" OR application=\"*httpd*\" OR service=\"httpd\" OR service=\"*httpd*\" OR component=\"httpd\" OR component=\"*httpd*\" OR subsystem=\"httpd\" OR subsystem=\"*httpd*\" OR domain=\"httpd\" OR domain=\"*httpd*\" OR team=\"httpd\" OR team=\"*httpd*\" OR owner=\"httpd\" OR owner=\"*httpd*\" OR managed_by=\"httpd\" OR managed_by=\"*httpd*\" OR management_zone=\"httpd\" OR management_zone=\"*httpd*\" OR mz=\"httpd\" OR mz=\"*httpd*\" OR env=\"httpd\" OR env=\"*httpd*\" OR environment=\"httpd\" OR environment=\"*httpd*\" OR k8s.app=\"httpd\" OR k8s.app=\"*httpd*\" OR k8s.app.name=\"httpd\" OR k8s.app.name=\"*httpd*\" OR k8s.container.name=\"httpd\" OR k8s.container.name=\"*httpd*\" OR k8s.namespace.name=\"httpd\" OR k8s.namespace.name=\"*httpd*\" OR kubernetes.container_name=\"httpd\" OR kubernetes.container_name=\"*httpd*\" OR kubernetes.pod_name=\"httpd\" OR kubernetes.pod_name=\"*httpd*\" OR kubernetes.namespace=\"httpd\" OR kubernetes.namespace=\"*httpd*\" OR namespace=\"httpd\" OR namespace=\"*httpd*\" OR pod=\"httpd\" OR pod=\"*httpd*\" OR container=\"httpd\" OR container=\"*httpd*\" OR container_name=\"httpd\" OR container_name=\"*httpd*\" OR process_group=\"httpd\" OR process_group=\"*httpd*\" OR processGroup=\"httpd\" OR processGroup=\"*httpd*\" OR process.name=\"httpd\" OR process.name=\"*httpd*\" OR process=\"httpd\" OR process=\"*httpd*\" OR pg=\"httpd\" OR pg=\"*httpd*\" OR host=\"httpd\" OR host=\"*httpd*\" OR host.name=\"httpd\" OR host.name=\"*httpd*\" OR hostname=\"httpd\" OR hostname=\"*httpd*\" OR tag=\"httpd\" OR tag=\"*httpd*\" OR tags=\"httpd\" OR tags=\"*httpd*\" OR label=\"httpd\" OR label=\"*httpd*\" OR labels=\"httpd\" OR labels=\"*httpd*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"httpd\" OR product=\"*httpd*\" OR app=\"httpd\" OR app=\"*httpd*\" OR application=\"httpd\" OR application=\"*httpd*\" OR service=\"httpd\" OR service=\"*httpd*\" OR component=\"httpd\" OR component=\"*httpd*\" OR subsystem=\"httpd\" OR subsystem=\"*httpd*\" OR domain=\"httpd\" OR domain=\"*httpd*\" OR team=\"httpd\" OR team=\"*httpd*\" OR owner=\"httpd\" OR owner=\"*httpd*\" OR managed_by=\"httpd\" OR managed_by=\"*httpd*\" OR management_zone=\"httpd\" OR management_zone=\"*httpd*\" OR mz=\"httpd\" OR mz=\"*httpd*\" OR env=\"httpd\" OR env=\"*httpd*\" OR environment=\"httpd\" OR environment=\"*httpd*\" OR k8s.app=\"httpd\" OR k8s.app=\"*httpd*\" OR k8s.app.name=\"httpd\" OR k8s.app.name=\"*httpd*\" OR k8s.container.name=\"httpd\" OR k8s.container.name=\"*httpd*\" OR k8s.namespace.name=\"httpd\" OR k8s.namespace.name=\"*httpd*\" OR kubernetes.container_name=\"httpd\" OR kubernetes.container_name=\"*httpd*\" OR kubernetes.pod_name=\"httpd\" OR kubernetes.pod_name=\"*httpd*\" OR kubernetes.namespace=\"httpd\" OR kubernetes.namespace=\"*httpd*\" OR namespace=\"httpd\" OR namespace=\"*httpd*\" OR pod=\"httpd\" OR pod=\"*httpd*\" OR container=\"httpd\" OR container=\"*httpd*\" OR container_name=\"httpd\" OR container_name=\"*httpd*\" OR process_group=\"httpd\" OR process_group=\"*httpd*\" OR processGroup=\"httpd\" OR processGroup=\"*httpd*\" OR process.name=\"httpd\" OR process.name=\"*httpd*\" OR process=\"httpd\" OR process=\"*httpd*\" OR pg=\"httpd\" OR pg=\"*httpd*\" OR host=\"httpd\" OR host=\"*httpd*\" OR host.name=\"httpd\" OR host.name=\"*httpd*\" OR hostname=\"httpd\" OR hostname=\"*httpd*\" OR tag=\"httpd\" OR tag=\"*httpd*\" OR tags=\"httpd\" OR tags=\"*httpd*\" OR label=\"httpd\" OR label=\"*httpd*\" OR labels=\"httpd\" OR labels=\"*httpd*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"httpd\" OR product=\"*httpd*\" OR app=\"httpd\" OR app=\"*httpd*\" OR application=\"httpd\" OR application=\"*httpd*\" OR service=\"httpd\" OR service=\"*httpd*\" OR component=\"httpd\" OR component=\"*httpd*\" OR subsystem=\"httpd\" OR subsystem=\"*httpd*\" OR domain=\"httpd\" OR domain=\"*httpd*\" OR team=\"httpd\" OR team=\"*httpd*\" OR owner=\"httpd\" OR owner=\"*httpd*\" OR managed_by=\"httpd\" OR managed_by=\"*httpd*\" OR management_zone=\"httpd\" OR management_zone=\"*httpd*\" OR mz=\"httpd\" OR mz=\"*httpd*\" OR env=\"httpd\" OR env=\"*httpd*\" OR environment=\"httpd\" OR environment=\"*httpd*\" OR k8s.app=\"httpd\" OR k8s.app=\"*httpd*\" OR k8s.app.name=\"httpd\" OR k8s.app.name=\"*httpd*\" OR k8s.container.name=\"httpd\" OR k8s.container.name=\"*httpd*\" OR k8s.namespace.name=\"httpd\" OR k8s.namespace.name=\"*httpd*\" OR kubernetes.container_name=\"httpd\" OR kubernetes.container_name=\"*httpd*\" OR kubernetes.pod_name=\"httpd\" OR kubernetes.pod_name=\"*httpd*\" OR kubernetes.namespace=\"httpd\" OR kubernetes.namespace=\"*httpd*\" OR namespace=\"httpd\" OR namespace=\"*httpd*\" OR pod=\"httpd\" OR pod=\"*httpd*\" OR container=\"httpd\" OR container=\"*httpd*\" OR container_name=\"httpd\" OR container_name=\"*httpd*\" OR process_group=\"httpd\" OR process_group=\"*httpd*\" OR processGroup=\"httpd\" OR processGroup=\"*httpd*\" OR process.name=\"httpd\" OR process.name=\"*httpd*\" OR process=\"httpd\" OR process=\"*httpd*\" OR pg=\"httpd\" OR pg=\"*httpd*\" OR host=\"httpd\" OR host=\"*httpd*\" OR host.name=\"httpd\" OR host.name=\"*httpd*\" OR hostname=\"httpd\" OR hostname=\"*httpd*\" OR tag=\"httpd\" OR tag=\"*httpd*\" OR tags=\"httpd\" OR tags=\"*httpd*\" OR label=\"httpd\" OR label=\"*httpd*\" OR labels=\"httpd\" OR labels=\"*httpd*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "nginx": {
       "product": "nginx",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"nginx:access\" OR sourcetype=\"nginx\" OR sourcetype=\"nginx:ingress\" ) product=\"nginx\" host=\"*nginx*\"",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "nginx",
+        "baseSearch": "(product=\"nginx\" OR product=\"*nginx*\" OR app=\"nginx\" OR app=\"*nginx*\" OR application=\"nginx\" OR application=\"*nginx*\" OR service=\"nginx\" OR service=\"*nginx*\" OR component=\"nginx\" OR component=\"*nginx*\" OR subsystem=\"nginx\" OR subsystem=\"*nginx*\" OR domain=\"nginx\" OR domain=\"*nginx*\" OR team=\"nginx\" OR team=\"*nginx*\" OR owner=\"nginx\" OR owner=\"*nginx*\" OR managed_by=\"nginx\" OR managed_by=\"*nginx*\" OR management_zone=\"nginx\" OR management_zone=\"*nginx*\" OR mz=\"nginx\" OR mz=\"*nginx*\" OR env=\"nginx\" OR env=\"*nginx*\" OR environment=\"nginx\" OR environment=\"*nginx*\" OR k8s.app=\"nginx\" OR k8s.app=\"*nginx*\" OR k8s.app.name=\"nginx\" OR k8s.app.name=\"*nginx*\" OR k8s.container.name=\"nginx\" OR k8s.container.name=\"*nginx*\" OR k8s.namespace.name=\"nginx\" OR k8s.namespace.name=\"*nginx*\" OR kubernetes.container_name=\"nginx\" OR kubernetes.container_name=\"*nginx*\" OR kubernetes.pod_name=\"nginx\" OR kubernetes.pod_name=\"*nginx*\" OR kubernetes.namespace=\"nginx\" OR kubernetes.namespace=\"*nginx*\" OR namespace=\"nginx\" OR namespace=\"*nginx*\" OR pod=\"nginx\" OR pod=\"*nginx*\" OR container=\"nginx\" OR container=\"*nginx*\" OR container_name=\"nginx\" OR container_name=\"*nginx*\" OR process_group=\"nginx\" OR process_group=\"*nginx*\" OR processGroup=\"nginx\" OR processGroup=\"*nginx*\" OR process.name=\"nginx\" OR process.name=\"*nginx*\" OR process=\"nginx\" OR process=\"*nginx*\" OR pg=\"nginx\" OR pg=\"*nginx*\" OR host=\"nginx\" OR host=\"*nginx*\" OR host.name=\"nginx\" OR host.name=\"*nginx*\" OR hostname=\"nginx\" OR hostname=\"*nginx*\" OR tag=\"nginx\" OR tag=\"*nginx*\" OR tags=\"nginx\" OR tags=\"*nginx*\" OR label=\"nginx\" OR label=\"*nginx*\" OR labels=\"nginx\" OR labels=\"*nginx*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"nginx\" OR app=\"nginx\" OR application=\"nginx\" OR service=\"nginx\" OR component=\"nginx\" OR subsystem=\"nginx\" OR domain=\"nginx\" OR team=\"nginx\" OR owner=\"nginx\" OR managed_by=\"nginx\" OR management_zone=\"nginx\" OR mz=\"nginx\" OR env=\"nginx\" OR environment=\"nginx\" OR k8s.app=\"nginx\" OR k8s.app.name=\"nginx\" OR k8s.container.name=\"nginx\" OR k8s.namespace.name=\"nginx\" OR kubernetes.container_name=\"nginx\" OR kubernetes.pod_name=\"nginx\" OR kubernetes.namespace=\"nginx\" OR namespace=\"nginx\" OR pod=\"nginx\" OR container=\"nginx\" OR container_name=\"nginx\" OR process_group=\"nginx\" OR processGroup=\"nginx\" OR process.name=\"nginx\" OR process=\"nginx\" OR pg=\"nginx\" OR host=\"nginx\" OR host.name=\"nginx\" OR hostname=\"nginx\" OR tag=\"nginx\" OR tags=\"nginx\" OR label=\"nginx\" OR labels=\"nginx\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"nginx\" OR product=\"*nginx*\" OR app=\"nginx\" OR app=\"*nginx*\" OR application=\"nginx\" OR application=\"*nginx*\" OR service=\"nginx\" OR service=\"*nginx*\" OR component=\"nginx\" OR component=\"*nginx*\" OR subsystem=\"nginx\" OR subsystem=\"*nginx*\" OR domain=\"nginx\" OR domain=\"*nginx*\" OR team=\"nginx\" OR team=\"*nginx*\" OR owner=\"nginx\" OR owner=\"*nginx*\" OR managed_by=\"nginx\" OR managed_by=\"*nginx*\" OR management_zone=\"nginx\" OR management_zone=\"*nginx*\" OR mz=\"nginx\" OR mz=\"*nginx*\" OR env=\"nginx\" OR env=\"*nginx*\" OR environment=\"nginx\" OR environment=\"*nginx*\" OR k8s.app=\"nginx\" OR k8s.app=\"*nginx*\" OR k8s.app.name=\"nginx\" OR k8s.app.name=\"*nginx*\" OR k8s.container.name=\"nginx\" OR k8s.container.name=\"*nginx*\" OR k8s.namespace.name=\"nginx\" OR k8s.namespace.name=\"*nginx*\" OR kubernetes.container_name=\"nginx\" OR kubernetes.container_name=\"*nginx*\" OR kubernetes.pod_name=\"nginx\" OR kubernetes.pod_name=\"*nginx*\" OR kubernetes.namespace=\"nginx\" OR kubernetes.namespace=\"*nginx*\" OR namespace=\"nginx\" OR namespace=\"*nginx*\" OR pod=\"nginx\" OR pod=\"*nginx*\" OR container=\"nginx\" OR container=\"*nginx*\" OR container_name=\"nginx\" OR container_name=\"*nginx*\" OR process_group=\"nginx\" OR process_group=\"*nginx*\" OR processGroup=\"nginx\" OR processGroup=\"*nginx*\" OR process.name=\"nginx\" OR process.name=\"*nginx*\" OR process=\"nginx\" OR process=\"*nginx*\" OR pg=\"nginx\" OR pg=\"*nginx*\" OR host=\"nginx\" OR host=\"*nginx*\" OR host.name=\"nginx\" OR host.name=\"*nginx*\" OR hostname=\"nginx\" OR hostname=\"*nginx*\" OR tag=\"nginx\" OR tag=\"*nginx*\" OR tags=\"nginx\" OR tags=\"*nginx*\" OR label=\"nginx\" OR label=\"*nginx*\" OR labels=\"nginx\" OR labels=\"*nginx*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"nginx\" OR product=\"*nginx*\" OR app=\"nginx\" OR app=\"*nginx*\" OR application=\"nginx\" OR application=\"*nginx*\" OR service=\"nginx\" OR service=\"*nginx*\" OR component=\"nginx\" OR component=\"*nginx*\" OR subsystem=\"nginx\" OR subsystem=\"*nginx*\" OR domain=\"nginx\" OR domain=\"*nginx*\" OR team=\"nginx\" OR team=\"*nginx*\" OR owner=\"nginx\" OR owner=\"*nginx*\" OR managed_by=\"nginx\" OR managed_by=\"*nginx*\" OR management_zone=\"nginx\" OR management_zone=\"*nginx*\" OR mz=\"nginx\" OR mz=\"*nginx*\" OR env=\"nginx\" OR env=\"*nginx*\" OR environment=\"nginx\" OR environment=\"*nginx*\" OR k8s.app=\"nginx\" OR k8s.app=\"*nginx*\" OR k8s.app.name=\"nginx\" OR k8s.app.name=\"*nginx*\" OR k8s.container.name=\"nginx\" OR k8s.container.name=\"*nginx*\" OR k8s.namespace.name=\"nginx\" OR k8s.namespace.name=\"*nginx*\" OR kubernetes.container_name=\"nginx\" OR kubernetes.container_name=\"*nginx*\" OR kubernetes.pod_name=\"nginx\" OR kubernetes.pod_name=\"*nginx*\" OR kubernetes.namespace=\"nginx\" OR kubernetes.namespace=\"*nginx*\" OR namespace=\"nginx\" OR namespace=\"*nginx*\" OR pod=\"nginx\" OR pod=\"*nginx*\" OR container=\"nginx\" OR container=\"*nginx*\" OR container_name=\"nginx\" OR container_name=\"*nginx*\" OR process_group=\"nginx\" OR process_group=\"*nginx*\" OR processGroup=\"nginx\" OR processGroup=\"*nginx*\" OR process.name=\"nginx\" OR process.name=\"*nginx*\" OR process=\"nginx\" OR process=\"*nginx*\" OR pg=\"nginx\" OR pg=\"*nginx*\" OR host=\"nginx\" OR host=\"*nginx*\" OR host.name=\"nginx\" OR host.name=\"*nginx*\" OR hostname=\"nginx\" OR hostname=\"*nginx*\" OR tag=\"nginx\" OR tag=\"*nginx*\" OR tags=\"nginx\" OR tags=\"*nginx*\" OR label=\"nginx\" OR label=\"*nginx*\" OR labels=\"nginx\" OR labels=\"*nginx*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"nginx\" OR product=\"*nginx*\" OR app=\"nginx\" OR app=\"*nginx*\" OR application=\"nginx\" OR application=\"*nginx*\" OR service=\"nginx\" OR service=\"*nginx*\" OR component=\"nginx\" OR component=\"*nginx*\" OR subsystem=\"nginx\" OR subsystem=\"*nginx*\" OR domain=\"nginx\" OR domain=\"*nginx*\" OR team=\"nginx\" OR team=\"*nginx*\" OR owner=\"nginx\" OR owner=\"*nginx*\" OR managed_by=\"nginx\" OR managed_by=\"*nginx*\" OR management_zone=\"nginx\" OR management_zone=\"*nginx*\" OR mz=\"nginx\" OR mz=\"*nginx*\" OR env=\"nginx\" OR env=\"*nginx*\" OR environment=\"nginx\" OR environment=\"*nginx*\" OR k8s.app=\"nginx\" OR k8s.app=\"*nginx*\" OR k8s.app.name=\"nginx\" OR k8s.app.name=\"*nginx*\" OR k8s.container.name=\"nginx\" OR k8s.container.name=\"*nginx*\" OR k8s.namespace.name=\"nginx\" OR k8s.namespace.name=\"*nginx*\" OR kubernetes.container_name=\"nginx\" OR kubernetes.container_name=\"*nginx*\" OR kubernetes.pod_name=\"nginx\" OR kubernetes.pod_name=\"*nginx*\" OR kubernetes.namespace=\"nginx\" OR kubernetes.namespace=\"*nginx*\" OR namespace=\"nginx\" OR namespace=\"*nginx*\" OR pod=\"nginx\" OR pod=\"*nginx*\" OR container=\"nginx\" OR container=\"*nginx*\" OR container_name=\"nginx\" OR container_name=\"*nginx*\" OR process_group=\"nginx\" OR process_group=\"*nginx*\" OR processGroup=\"nginx\" OR processGroup=\"*nginx*\" OR process.name=\"nginx\" OR process.name=\"*nginx*\" OR process=\"nginx\" OR process=\"*nginx*\" OR pg=\"nginx\" OR pg=\"*nginx*\" OR host=\"nginx\" OR host=\"*nginx*\" OR host.name=\"nginx\" OR host.name=\"*nginx*\" OR hostname=\"nginx\" OR hostname=\"*nginx*\" OR tag=\"nginx\" OR tag=\"*nginx*\" OR tags=\"nginx\" OR tags=\"*nginx*\" OR label=\"nginx\" OR label=\"*nginx*\" OR labels=\"nginx\" OR labels=\"*nginx*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "jboss": {
       "product": "jboss",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"jboss:server\" OR sourcetype=\"eap:server\" OR sourcetype=\"wildfly:server\" OR sourcetype=\"jboss\" ) product=\"jboss\" ( host=\"*jboss*\" OR host=\"*eap*\" OR host=\"*wildfly*\" )",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "jboss",
+        "baseSearch": "(product=\"jboss\" OR product=\"*jboss*\" OR app=\"jboss\" OR app=\"*jboss*\" OR application=\"jboss\" OR application=\"*jboss*\" OR service=\"jboss\" OR service=\"*jboss*\" OR component=\"jboss\" OR component=\"*jboss*\" OR subsystem=\"jboss\" OR subsystem=\"*jboss*\" OR domain=\"jboss\" OR domain=\"*jboss*\" OR team=\"jboss\" OR team=\"*jboss*\" OR owner=\"jboss\" OR owner=\"*jboss*\" OR managed_by=\"jboss\" OR managed_by=\"*jboss*\" OR management_zone=\"jboss\" OR management_zone=\"*jboss*\" OR mz=\"jboss\" OR mz=\"*jboss*\" OR env=\"jboss\" OR env=\"*jboss*\" OR environment=\"jboss\" OR environment=\"*jboss*\" OR k8s.app=\"jboss\" OR k8s.app=\"*jboss*\" OR k8s.app.name=\"jboss\" OR k8s.app.name=\"*jboss*\" OR k8s.container.name=\"jboss\" OR k8s.container.name=\"*jboss*\" OR k8s.namespace.name=\"jboss\" OR k8s.namespace.name=\"*jboss*\" OR kubernetes.container_name=\"jboss\" OR kubernetes.container_name=\"*jboss*\" OR kubernetes.pod_name=\"jboss\" OR kubernetes.pod_name=\"*jboss*\" OR kubernetes.namespace=\"jboss\" OR kubernetes.namespace=\"*jboss*\" OR namespace=\"jboss\" OR namespace=\"*jboss*\" OR pod=\"jboss\" OR pod=\"*jboss*\" OR container=\"jboss\" OR container=\"*jboss*\" OR container_name=\"jboss\" OR container_name=\"*jboss*\" OR process_group=\"jboss\" OR process_group=\"*jboss*\" OR processGroup=\"jboss\" OR processGroup=\"*jboss*\" OR process.name=\"jboss\" OR process.name=\"*jboss*\" OR process=\"jboss\" OR process=\"*jboss*\" OR pg=\"jboss\" OR pg=\"*jboss*\" OR host=\"jboss\" OR host=\"*jboss*\" OR host.name=\"jboss\" OR host.name=\"*jboss*\" OR hostname=\"jboss\" OR hostname=\"*jboss*\" OR tag=\"jboss\" OR tag=\"*jboss*\" OR tags=\"jboss\" OR tags=\"*jboss*\" OR label=\"jboss\" OR label=\"*jboss*\" OR labels=\"jboss\" OR labels=\"*jboss*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"jboss\" OR app=\"jboss\" OR application=\"jboss\" OR service=\"jboss\" OR component=\"jboss\" OR subsystem=\"jboss\" OR domain=\"jboss\" OR team=\"jboss\" OR owner=\"jboss\" OR managed_by=\"jboss\" OR management_zone=\"jboss\" OR mz=\"jboss\" OR env=\"jboss\" OR environment=\"jboss\" OR k8s.app=\"jboss\" OR k8s.app.name=\"jboss\" OR k8s.container.name=\"jboss\" OR k8s.namespace.name=\"jboss\" OR kubernetes.container_name=\"jboss\" OR kubernetes.pod_name=\"jboss\" OR kubernetes.namespace=\"jboss\" OR namespace=\"jboss\" OR pod=\"jboss\" OR container=\"jboss\" OR container_name=\"jboss\" OR process_group=\"jboss\" OR processGroup=\"jboss\" OR process.name=\"jboss\" OR process=\"jboss\" OR pg=\"jboss\" OR host=\"jboss\" OR host.name=\"jboss\" OR hostname=\"jboss\" OR tag=\"jboss\" OR tags=\"jboss\" OR label=\"jboss\" OR labels=\"jboss\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"jboss\" OR product=\"*jboss*\" OR app=\"jboss\" OR app=\"*jboss*\" OR application=\"jboss\" OR application=\"*jboss*\" OR service=\"jboss\" OR service=\"*jboss*\" OR component=\"jboss\" OR component=\"*jboss*\" OR subsystem=\"jboss\" OR subsystem=\"*jboss*\" OR domain=\"jboss\" OR domain=\"*jboss*\" OR team=\"jboss\" OR team=\"*jboss*\" OR owner=\"jboss\" OR owner=\"*jboss*\" OR managed_by=\"jboss\" OR managed_by=\"*jboss*\" OR management_zone=\"jboss\" OR management_zone=\"*jboss*\" OR mz=\"jboss\" OR mz=\"*jboss*\" OR env=\"jboss\" OR env=\"*jboss*\" OR environment=\"jboss\" OR environment=\"*jboss*\" OR k8s.app=\"jboss\" OR k8s.app=\"*jboss*\" OR k8s.app.name=\"jboss\" OR k8s.app.name=\"*jboss*\" OR k8s.container.name=\"jboss\" OR k8s.container.name=\"*jboss*\" OR k8s.namespace.name=\"jboss\" OR k8s.namespace.name=\"*jboss*\" OR kubernetes.container_name=\"jboss\" OR kubernetes.container_name=\"*jboss*\" OR kubernetes.pod_name=\"jboss\" OR kubernetes.pod_name=\"*jboss*\" OR kubernetes.namespace=\"jboss\" OR kubernetes.namespace=\"*jboss*\" OR namespace=\"jboss\" OR namespace=\"*jboss*\" OR pod=\"jboss\" OR pod=\"*jboss*\" OR container=\"jboss\" OR container=\"*jboss*\" OR container_name=\"jboss\" OR container_name=\"*jboss*\" OR process_group=\"jboss\" OR process_group=\"*jboss*\" OR processGroup=\"jboss\" OR processGroup=\"*jboss*\" OR process.name=\"jboss\" OR process.name=\"*jboss*\" OR process=\"jboss\" OR process=\"*jboss*\" OR pg=\"jboss\" OR pg=\"*jboss*\" OR host=\"jboss\" OR host=\"*jboss*\" OR host.name=\"jboss\" OR host.name=\"*jboss*\" OR hostname=\"jboss\" OR hostname=\"*jboss*\" OR tag=\"jboss\" OR tag=\"*jboss*\" OR tags=\"jboss\" OR tags=\"*jboss*\" OR label=\"jboss\" OR label=\"*jboss*\" OR labels=\"jboss\" OR labels=\"*jboss*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"jboss\" OR product=\"*jboss*\" OR app=\"jboss\" OR app=\"*jboss*\" OR application=\"jboss\" OR application=\"*jboss*\" OR service=\"jboss\" OR service=\"*jboss*\" OR component=\"jboss\" OR component=\"*jboss*\" OR subsystem=\"jboss\" OR subsystem=\"*jboss*\" OR domain=\"jboss\" OR domain=\"*jboss*\" OR team=\"jboss\" OR team=\"*jboss*\" OR owner=\"jboss\" OR owner=\"*jboss*\" OR managed_by=\"jboss\" OR managed_by=\"*jboss*\" OR management_zone=\"jboss\" OR management_zone=\"*jboss*\" OR mz=\"jboss\" OR mz=\"*jboss*\" OR env=\"jboss\" OR env=\"*jboss*\" OR environment=\"jboss\" OR environment=\"*jboss*\" OR k8s.app=\"jboss\" OR k8s.app=\"*jboss*\" OR k8s.app.name=\"jboss\" OR k8s.app.name=\"*jboss*\" OR k8s.container.name=\"jboss\" OR k8s.container.name=\"*jboss*\" OR k8s.namespace.name=\"jboss\" OR k8s.namespace.name=\"*jboss*\" OR kubernetes.container_name=\"jboss\" OR kubernetes.container_name=\"*jboss*\" OR kubernetes.pod_name=\"jboss\" OR kubernetes.pod_name=\"*jboss*\" OR kubernetes.namespace=\"jboss\" OR kubernetes.namespace=\"*jboss*\" OR namespace=\"jboss\" OR namespace=\"*jboss*\" OR pod=\"jboss\" OR pod=\"*jboss*\" OR container=\"jboss\" OR container=\"*jboss*\" OR container_name=\"jboss\" OR container_name=\"*jboss*\" OR process_group=\"jboss\" OR process_group=\"*jboss*\" OR processGroup=\"jboss\" OR processGroup=\"*jboss*\" OR process.name=\"jboss\" OR process.name=\"*jboss*\" OR process=\"jboss\" OR process=\"*jboss*\" OR pg=\"jboss\" OR pg=\"*jboss*\" OR host=\"jboss\" OR host=\"*jboss*\" OR host.name=\"jboss\" OR host.name=\"*jboss*\" OR hostname=\"jboss\" OR hostname=\"*jboss*\" OR tag=\"jboss\" OR tag=\"*jboss*\" OR tags=\"jboss\" OR tags=\"*jboss*\" OR label=\"jboss\" OR label=\"*jboss*\" OR labels=\"jboss\" OR labels=\"*jboss*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"jboss\" OR product=\"*jboss*\" OR app=\"jboss\" OR app=\"*jboss*\" OR application=\"jboss\" OR application=\"*jboss*\" OR service=\"jboss\" OR service=\"*jboss*\" OR component=\"jboss\" OR component=\"*jboss*\" OR subsystem=\"jboss\" OR subsystem=\"*jboss*\" OR domain=\"jboss\" OR domain=\"*jboss*\" OR team=\"jboss\" OR team=\"*jboss*\" OR owner=\"jboss\" OR owner=\"*jboss*\" OR managed_by=\"jboss\" OR managed_by=\"*jboss*\" OR management_zone=\"jboss\" OR management_zone=\"*jboss*\" OR mz=\"jboss\" OR mz=\"*jboss*\" OR env=\"jboss\" OR env=\"*jboss*\" OR environment=\"jboss\" OR environment=\"*jboss*\" OR k8s.app=\"jboss\" OR k8s.app=\"*jboss*\" OR k8s.app.name=\"jboss\" OR k8s.app.name=\"*jboss*\" OR k8s.container.name=\"jboss\" OR k8s.container.name=\"*jboss*\" OR k8s.namespace.name=\"jboss\" OR k8s.namespace.name=\"*jboss*\" OR kubernetes.container_name=\"jboss\" OR kubernetes.container_name=\"*jboss*\" OR kubernetes.pod_name=\"jboss\" OR kubernetes.pod_name=\"*jboss*\" OR kubernetes.namespace=\"jboss\" OR kubernetes.namespace=\"*jboss*\" OR namespace=\"jboss\" OR namespace=\"*jboss*\" OR pod=\"jboss\" OR pod=\"*jboss*\" OR container=\"jboss\" OR container=\"*jboss*\" OR container_name=\"jboss\" OR container_name=\"*jboss*\" OR process_group=\"jboss\" OR process_group=\"*jboss*\" OR processGroup=\"jboss\" OR processGroup=\"*jboss*\" OR process.name=\"jboss\" OR process.name=\"*jboss*\" OR process=\"jboss\" OR process=\"*jboss*\" OR pg=\"jboss\" OR pg=\"*jboss*\" OR host=\"jboss\" OR host=\"*jboss*\" OR host.name=\"jboss\" OR host.name=\"*jboss*\" OR hostname=\"jboss\" OR hostname=\"*jboss*\" OR tag=\"jboss\" OR tag=\"*jboss*\" OR tags=\"jboss\" OR tags=\"*jboss*\" OR label=\"jboss\" OR label=\"*jboss*\" OR labels=\"jboss\" OR labels=\"*jboss*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "websphere": {
       "product": "websphere",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"was:systemout\" OR sourcetype=\"websphere:systemout\" OR sourcetype=\"websphere\" ) product=\"websphere\" ( host=\"*websphere*\" OR host=\"*was*\" )",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "websphere",
+        "baseSearch": "(product=\"websphere\" OR product=\"*websphere*\" OR app=\"websphere\" OR app=\"*websphere*\" OR application=\"websphere\" OR application=\"*websphere*\" OR service=\"websphere\" OR service=\"*websphere*\" OR component=\"websphere\" OR component=\"*websphere*\" OR subsystem=\"websphere\" OR subsystem=\"*websphere*\" OR domain=\"websphere\" OR domain=\"*websphere*\" OR team=\"websphere\" OR team=\"*websphere*\" OR owner=\"websphere\" OR owner=\"*websphere*\" OR managed_by=\"websphere\" OR managed_by=\"*websphere*\" OR management_zone=\"websphere\" OR management_zone=\"*websphere*\" OR mz=\"websphere\" OR mz=\"*websphere*\" OR env=\"websphere\" OR env=\"*websphere*\" OR environment=\"websphere\" OR environment=\"*websphere*\" OR k8s.app=\"websphere\" OR k8s.app=\"*websphere*\" OR k8s.app.name=\"websphere\" OR k8s.app.name=\"*websphere*\" OR k8s.container.name=\"websphere\" OR k8s.container.name=\"*websphere*\" OR k8s.namespace.name=\"websphere\" OR k8s.namespace.name=\"*websphere*\" OR kubernetes.container_name=\"websphere\" OR kubernetes.container_name=\"*websphere*\" OR kubernetes.pod_name=\"websphere\" OR kubernetes.pod_name=\"*websphere*\" OR kubernetes.namespace=\"websphere\" OR kubernetes.namespace=\"*websphere*\" OR namespace=\"websphere\" OR namespace=\"*websphere*\" OR pod=\"websphere\" OR pod=\"*websphere*\" OR container=\"websphere\" OR container=\"*websphere*\" OR container_name=\"websphere\" OR container_name=\"*websphere*\" OR process_group=\"websphere\" OR process_group=\"*websphere*\" OR processGroup=\"websphere\" OR processGroup=\"*websphere*\" OR process.name=\"websphere\" OR process.name=\"*websphere*\" OR process=\"websphere\" OR process=\"*websphere*\" OR pg=\"websphere\" OR pg=\"*websphere*\" OR host=\"websphere\" OR host=\"*websphere*\" OR host.name=\"websphere\" OR host.name=\"*websphere*\" OR hostname=\"websphere\" OR hostname=\"*websphere*\" OR tag=\"websphere\" OR tag=\"*websphere*\" OR tags=\"websphere\" OR tags=\"*websphere*\" OR label=\"websphere\" OR label=\"*websphere*\" OR labels=\"websphere\" OR labels=\"*websphere*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"websphere\" OR app=\"websphere\" OR application=\"websphere\" OR service=\"websphere\" OR component=\"websphere\" OR subsystem=\"websphere\" OR domain=\"websphere\" OR team=\"websphere\" OR owner=\"websphere\" OR managed_by=\"websphere\" OR management_zone=\"websphere\" OR mz=\"websphere\" OR env=\"websphere\" OR environment=\"websphere\" OR k8s.app=\"websphere\" OR k8s.app.name=\"websphere\" OR k8s.container.name=\"websphere\" OR k8s.namespace.name=\"websphere\" OR kubernetes.container_name=\"websphere\" OR kubernetes.pod_name=\"websphere\" OR kubernetes.namespace=\"websphere\" OR namespace=\"websphere\" OR pod=\"websphere\" OR container=\"websphere\" OR container_name=\"websphere\" OR process_group=\"websphere\" OR processGroup=\"websphere\" OR process.name=\"websphere\" OR process=\"websphere\" OR pg=\"websphere\" OR host=\"websphere\" OR host.name=\"websphere\" OR hostname=\"websphere\" OR tag=\"websphere\" OR tags=\"websphere\" OR label=\"websphere\" OR labels=\"websphere\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"websphere\" OR product=\"*websphere*\" OR app=\"websphere\" OR app=\"*websphere*\" OR application=\"websphere\" OR application=\"*websphere*\" OR service=\"websphere\" OR service=\"*websphere*\" OR component=\"websphere\" OR component=\"*websphere*\" OR subsystem=\"websphere\" OR subsystem=\"*websphere*\" OR domain=\"websphere\" OR domain=\"*websphere*\" OR team=\"websphere\" OR team=\"*websphere*\" OR owner=\"websphere\" OR owner=\"*websphere*\" OR managed_by=\"websphere\" OR managed_by=\"*websphere*\" OR management_zone=\"websphere\" OR management_zone=\"*websphere*\" OR mz=\"websphere\" OR mz=\"*websphere*\" OR env=\"websphere\" OR env=\"*websphere*\" OR environment=\"websphere\" OR environment=\"*websphere*\" OR k8s.app=\"websphere\" OR k8s.app=\"*websphere*\" OR k8s.app.name=\"websphere\" OR k8s.app.name=\"*websphere*\" OR k8s.container.name=\"websphere\" OR k8s.container.name=\"*websphere*\" OR k8s.namespace.name=\"websphere\" OR k8s.namespace.name=\"*websphere*\" OR kubernetes.container_name=\"websphere\" OR kubernetes.container_name=\"*websphere*\" OR kubernetes.pod_name=\"websphere\" OR kubernetes.pod_name=\"*websphere*\" OR kubernetes.namespace=\"websphere\" OR kubernetes.namespace=\"*websphere*\" OR namespace=\"websphere\" OR namespace=\"*websphere*\" OR pod=\"websphere\" OR pod=\"*websphere*\" OR container=\"websphere\" OR container=\"*websphere*\" OR container_name=\"websphere\" OR container_name=\"*websphere*\" OR process_group=\"websphere\" OR process_group=\"*websphere*\" OR processGroup=\"websphere\" OR processGroup=\"*websphere*\" OR process.name=\"websphere\" OR process.name=\"*websphere*\" OR process=\"websphere\" OR process=\"*websphere*\" OR pg=\"websphere\" OR pg=\"*websphere*\" OR host=\"websphere\" OR host=\"*websphere*\" OR host.name=\"websphere\" OR host.name=\"*websphere*\" OR hostname=\"websphere\" OR hostname=\"*websphere*\" OR tag=\"websphere\" OR tag=\"*websphere*\" OR tags=\"websphere\" OR tags=\"*websphere*\" OR label=\"websphere\" OR label=\"*websphere*\" OR labels=\"websphere\" OR labels=\"*websphere*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"websphere\" OR product=\"*websphere*\" OR app=\"websphere\" OR app=\"*websphere*\" OR application=\"websphere\" OR application=\"*websphere*\" OR service=\"websphere\" OR service=\"*websphere*\" OR component=\"websphere\" OR component=\"*websphere*\" OR subsystem=\"websphere\" OR subsystem=\"*websphere*\" OR domain=\"websphere\" OR domain=\"*websphere*\" OR team=\"websphere\" OR team=\"*websphere*\" OR owner=\"websphere\" OR owner=\"*websphere*\" OR managed_by=\"websphere\" OR managed_by=\"*websphere*\" OR management_zone=\"websphere\" OR management_zone=\"*websphere*\" OR mz=\"websphere\" OR mz=\"*websphere*\" OR env=\"websphere\" OR env=\"*websphere*\" OR environment=\"websphere\" OR environment=\"*websphere*\" OR k8s.app=\"websphere\" OR k8s.app=\"*websphere*\" OR k8s.app.name=\"websphere\" OR k8s.app.name=\"*websphere*\" OR k8s.container.name=\"websphere\" OR k8s.container.name=\"*websphere*\" OR k8s.namespace.name=\"websphere\" OR k8s.namespace.name=\"*websphere*\" OR kubernetes.container_name=\"websphere\" OR kubernetes.container_name=\"*websphere*\" OR kubernetes.pod_name=\"websphere\" OR kubernetes.pod_name=\"*websphere*\" OR kubernetes.namespace=\"websphere\" OR kubernetes.namespace=\"*websphere*\" OR namespace=\"websphere\" OR namespace=\"*websphere*\" OR pod=\"websphere\" OR pod=\"*websphere*\" OR container=\"websphere\" OR container=\"*websphere*\" OR container_name=\"websphere\" OR container_name=\"*websphere*\" OR process_group=\"websphere\" OR process_group=\"*websphere*\" OR processGroup=\"websphere\" OR processGroup=\"*websphere*\" OR process.name=\"websphere\" OR process.name=\"*websphere*\" OR process=\"websphere\" OR process=\"*websphere*\" OR pg=\"websphere\" OR pg=\"*websphere*\" OR host=\"websphere\" OR host=\"*websphere*\" OR host.name=\"websphere\" OR host.name=\"*websphere*\" OR hostname=\"websphere\" OR hostname=\"*websphere*\" OR tag=\"websphere\" OR tag=\"*websphere*\" OR tags=\"websphere\" OR tags=\"*websphere*\" OR label=\"websphere\" OR label=\"*websphere*\" OR labels=\"websphere\" OR labels=\"*websphere*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"websphere\" OR product=\"*websphere*\" OR app=\"websphere\" OR app=\"*websphere*\" OR application=\"websphere\" OR application=\"*websphere*\" OR service=\"websphere\" OR service=\"*websphere*\" OR component=\"websphere\" OR component=\"*websphere*\" OR subsystem=\"websphere\" OR subsystem=\"*websphere*\" OR domain=\"websphere\" OR domain=\"*websphere*\" OR team=\"websphere\" OR team=\"*websphere*\" OR owner=\"websphere\" OR owner=\"*websphere*\" OR managed_by=\"websphere\" OR managed_by=\"*websphere*\" OR management_zone=\"websphere\" OR management_zone=\"*websphere*\" OR mz=\"websphere\" OR mz=\"*websphere*\" OR env=\"websphere\" OR env=\"*websphere*\" OR environment=\"websphere\" OR environment=\"*websphere*\" OR k8s.app=\"websphere\" OR k8s.app=\"*websphere*\" OR k8s.app.name=\"websphere\" OR k8s.app.name=\"*websphere*\" OR k8s.container.name=\"websphere\" OR k8s.container.name=\"*websphere*\" OR k8s.namespace.name=\"websphere\" OR k8s.namespace.name=\"*websphere*\" OR kubernetes.container_name=\"websphere\" OR kubernetes.container_name=\"*websphere*\" OR kubernetes.pod_name=\"websphere\" OR kubernetes.pod_name=\"*websphere*\" OR kubernetes.namespace=\"websphere\" OR kubernetes.namespace=\"*websphere*\" OR namespace=\"websphere\" OR namespace=\"*websphere*\" OR pod=\"websphere\" OR pod=\"*websphere*\" OR container=\"websphere\" OR container=\"*websphere*\" OR container_name=\"websphere\" OR container_name=\"*websphere*\" OR process_group=\"websphere\" OR process_group=\"*websphere*\" OR processGroup=\"websphere\" OR processGroup=\"*websphere*\" OR process.name=\"websphere\" OR process.name=\"*websphere*\" OR process=\"websphere\" OR process=\"*websphere*\" OR pg=\"websphere\" OR pg=\"*websphere*\" OR host=\"websphere\" OR host=\"*websphere*\" OR host.name=\"websphere\" OR host.name=\"*websphere*\" OR hostname=\"websphere\" OR hostname=\"*websphere*\" OR tag=\"websphere\" OR tag=\"*websphere*\" OR tags=\"websphere\" OR tags=\"*websphere*\" OR label=\"websphere\" OR label=\"*websphere*\" OR labels=\"websphere\" OR labels=\"*websphere*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "ctg": {
       "product": "ctg",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"ctg:log\" OR sourcetype=\"cics:tg\" OR sourcetype=\"ctg\" ) product=\"ctg\" ( host=\"*ctg*\" OR host=\"*cics*\" )",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "ctg",
+        "baseSearch": "(product=\"ctg\" OR product=\"*ctg*\" OR app=\"ctg\" OR app=\"*ctg*\" OR application=\"ctg\" OR application=\"*ctg*\" OR service=\"ctg\" OR service=\"*ctg*\" OR component=\"ctg\" OR component=\"*ctg*\" OR subsystem=\"ctg\" OR subsystem=\"*ctg*\" OR domain=\"ctg\" OR domain=\"*ctg*\" OR team=\"ctg\" OR team=\"*ctg*\" OR owner=\"ctg\" OR owner=\"*ctg*\" OR managed_by=\"ctg\" OR managed_by=\"*ctg*\" OR management_zone=\"ctg\" OR management_zone=\"*ctg*\" OR mz=\"ctg\" OR mz=\"*ctg*\" OR env=\"ctg\" OR env=\"*ctg*\" OR environment=\"ctg\" OR environment=\"*ctg*\" OR k8s.app=\"ctg\" OR k8s.app=\"*ctg*\" OR k8s.app.name=\"ctg\" OR k8s.app.name=\"*ctg*\" OR k8s.container.name=\"ctg\" OR k8s.container.name=\"*ctg*\" OR k8s.namespace.name=\"ctg\" OR k8s.namespace.name=\"*ctg*\" OR kubernetes.container_name=\"ctg\" OR kubernetes.container_name=\"*ctg*\" OR kubernetes.pod_name=\"ctg\" OR kubernetes.pod_name=\"*ctg*\" OR kubernetes.namespace=\"ctg\" OR kubernetes.namespace=\"*ctg*\" OR namespace=\"ctg\" OR namespace=\"*ctg*\" OR pod=\"ctg\" OR pod=\"*ctg*\" OR container=\"ctg\" OR container=\"*ctg*\" OR container_name=\"ctg\" OR container_name=\"*ctg*\" OR process_group=\"ctg\" OR process_group=\"*ctg*\" OR processGroup=\"ctg\" OR processGroup=\"*ctg*\" OR process.name=\"ctg\" OR process.name=\"*ctg*\" OR process=\"ctg\" OR process=\"*ctg*\" OR pg=\"ctg\" OR pg=\"*ctg*\" OR host=\"ctg\" OR host=\"*ctg*\" OR host.name=\"ctg\" OR host.name=\"*ctg*\" OR hostname=\"ctg\" OR hostname=\"*ctg*\" OR tag=\"ctg\" OR tag=\"*ctg*\" OR tags=\"ctg\" OR tags=\"*ctg*\" OR label=\"ctg\" OR label=\"*ctg*\" OR labels=\"ctg\" OR labels=\"*ctg*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"ctg\" OR app=\"ctg\" OR application=\"ctg\" OR service=\"ctg\" OR component=\"ctg\" OR subsystem=\"ctg\" OR domain=\"ctg\" OR team=\"ctg\" OR owner=\"ctg\" OR managed_by=\"ctg\" OR management_zone=\"ctg\" OR mz=\"ctg\" OR env=\"ctg\" OR environment=\"ctg\" OR k8s.app=\"ctg\" OR k8s.app.name=\"ctg\" OR k8s.container.name=\"ctg\" OR k8s.namespace.name=\"ctg\" OR kubernetes.container_name=\"ctg\" OR kubernetes.pod_name=\"ctg\" OR kubernetes.namespace=\"ctg\" OR namespace=\"ctg\" OR pod=\"ctg\" OR container=\"ctg\" OR container_name=\"ctg\" OR process_group=\"ctg\" OR processGroup=\"ctg\" OR process.name=\"ctg\" OR process=\"ctg\" OR pg=\"ctg\" OR host=\"ctg\" OR host.name=\"ctg\" OR hostname=\"ctg\" OR tag=\"ctg\" OR tags=\"ctg\" OR label=\"ctg\" OR labels=\"ctg\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"ctg\" OR product=\"*ctg*\" OR app=\"ctg\" OR app=\"*ctg*\" OR application=\"ctg\" OR application=\"*ctg*\" OR service=\"ctg\" OR service=\"*ctg*\" OR component=\"ctg\" OR component=\"*ctg*\" OR subsystem=\"ctg\" OR subsystem=\"*ctg*\" OR domain=\"ctg\" OR domain=\"*ctg*\" OR team=\"ctg\" OR team=\"*ctg*\" OR owner=\"ctg\" OR owner=\"*ctg*\" OR managed_by=\"ctg\" OR managed_by=\"*ctg*\" OR management_zone=\"ctg\" OR management_zone=\"*ctg*\" OR mz=\"ctg\" OR mz=\"*ctg*\" OR env=\"ctg\" OR env=\"*ctg*\" OR environment=\"ctg\" OR environment=\"*ctg*\" OR k8s.app=\"ctg\" OR k8s.app=\"*ctg*\" OR k8s.app.name=\"ctg\" OR k8s.app.name=\"*ctg*\" OR k8s.container.name=\"ctg\" OR k8s.container.name=\"*ctg*\" OR k8s.namespace.name=\"ctg\" OR k8s.namespace.name=\"*ctg*\" OR kubernetes.container_name=\"ctg\" OR kubernetes.container_name=\"*ctg*\" OR kubernetes.pod_name=\"ctg\" OR kubernetes.pod_name=\"*ctg*\" OR kubernetes.namespace=\"ctg\" OR kubernetes.namespace=\"*ctg*\" OR namespace=\"ctg\" OR namespace=\"*ctg*\" OR pod=\"ctg\" OR pod=\"*ctg*\" OR container=\"ctg\" OR container=\"*ctg*\" OR container_name=\"ctg\" OR container_name=\"*ctg*\" OR process_group=\"ctg\" OR process_group=\"*ctg*\" OR processGroup=\"ctg\" OR processGroup=\"*ctg*\" OR process.name=\"ctg\" OR process.name=\"*ctg*\" OR process=\"ctg\" OR process=\"*ctg*\" OR pg=\"ctg\" OR pg=\"*ctg*\" OR host=\"ctg\" OR host=\"*ctg*\" OR host.name=\"ctg\" OR host.name=\"*ctg*\" OR hostname=\"ctg\" OR hostname=\"*ctg*\" OR tag=\"ctg\" OR tag=\"*ctg*\" OR tags=\"ctg\" OR tags=\"*ctg*\" OR label=\"ctg\" OR label=\"*ctg*\" OR labels=\"ctg\" OR labels=\"*ctg*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"ctg\" OR product=\"*ctg*\" OR app=\"ctg\" OR app=\"*ctg*\" OR application=\"ctg\" OR application=\"*ctg*\" OR service=\"ctg\" OR service=\"*ctg*\" OR component=\"ctg\" OR component=\"*ctg*\" OR subsystem=\"ctg\" OR subsystem=\"*ctg*\" OR domain=\"ctg\" OR domain=\"*ctg*\" OR team=\"ctg\" OR team=\"*ctg*\" OR owner=\"ctg\" OR owner=\"*ctg*\" OR managed_by=\"ctg\" OR managed_by=\"*ctg*\" OR management_zone=\"ctg\" OR management_zone=\"*ctg*\" OR mz=\"ctg\" OR mz=\"*ctg*\" OR env=\"ctg\" OR env=\"*ctg*\" OR environment=\"ctg\" OR environment=\"*ctg*\" OR k8s.app=\"ctg\" OR k8s.app=\"*ctg*\" OR k8s.app.name=\"ctg\" OR k8s.app.name=\"*ctg*\" OR k8s.container.name=\"ctg\" OR k8s.container.name=\"*ctg*\" OR k8s.namespace.name=\"ctg\" OR k8s.namespace.name=\"*ctg*\" OR kubernetes.container_name=\"ctg\" OR kubernetes.container_name=\"*ctg*\" OR kubernetes.pod_name=\"ctg\" OR kubernetes.pod_name=\"*ctg*\" OR kubernetes.namespace=\"ctg\" OR kubernetes.namespace=\"*ctg*\" OR namespace=\"ctg\" OR namespace=\"*ctg*\" OR pod=\"ctg\" OR pod=\"*ctg*\" OR container=\"ctg\" OR container=\"*ctg*\" OR container_name=\"ctg\" OR container_name=\"*ctg*\" OR process_group=\"ctg\" OR process_group=\"*ctg*\" OR processGroup=\"ctg\" OR processGroup=\"*ctg*\" OR process.name=\"ctg\" OR process.name=\"*ctg*\" OR process=\"ctg\" OR process=\"*ctg*\" OR pg=\"ctg\" OR pg=\"*ctg*\" OR host=\"ctg\" OR host=\"*ctg*\" OR host.name=\"ctg\" OR host.name=\"*ctg*\" OR hostname=\"ctg\" OR hostname=\"*ctg*\" OR tag=\"ctg\" OR tag=\"*ctg*\" OR tags=\"ctg\" OR tags=\"*ctg*\" OR label=\"ctg\" OR label=\"*ctg*\" OR labels=\"ctg\" OR labels=\"*ctg*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"ctg\" OR product=\"*ctg*\" OR app=\"ctg\" OR app=\"*ctg*\" OR application=\"ctg\" OR application=\"*ctg*\" OR service=\"ctg\" OR service=\"*ctg*\" OR component=\"ctg\" OR component=\"*ctg*\" OR subsystem=\"ctg\" OR subsystem=\"*ctg*\" OR domain=\"ctg\" OR domain=\"*ctg*\" OR team=\"ctg\" OR team=\"*ctg*\" OR owner=\"ctg\" OR owner=\"*ctg*\" OR managed_by=\"ctg\" OR managed_by=\"*ctg*\" OR management_zone=\"ctg\" OR management_zone=\"*ctg*\" OR mz=\"ctg\" OR mz=\"*ctg*\" OR env=\"ctg\" OR env=\"*ctg*\" OR environment=\"ctg\" OR environment=\"*ctg*\" OR k8s.app=\"ctg\" OR k8s.app=\"*ctg*\" OR k8s.app.name=\"ctg\" OR k8s.app.name=\"*ctg*\" OR k8s.container.name=\"ctg\" OR k8s.container.name=\"*ctg*\" OR k8s.namespace.name=\"ctg\" OR k8s.namespace.name=\"*ctg*\" OR kubernetes.container_name=\"ctg\" OR kubernetes.container_name=\"*ctg*\" OR kubernetes.pod_name=\"ctg\" OR kubernetes.pod_name=\"*ctg*\" OR kubernetes.namespace=\"ctg\" OR kubernetes.namespace=\"*ctg*\" OR namespace=\"ctg\" OR namespace=\"*ctg*\" OR pod=\"ctg\" OR pod=\"*ctg*\" OR container=\"ctg\" OR container=\"*ctg*\" OR container_name=\"ctg\" OR container_name=\"*ctg*\" OR process_group=\"ctg\" OR process_group=\"*ctg*\" OR processGroup=\"ctg\" OR processGroup=\"*ctg*\" OR process.name=\"ctg\" OR process.name=\"*ctg*\" OR process=\"ctg\" OR process=\"*ctg*\" OR pg=\"ctg\" OR pg=\"*ctg*\" OR host=\"ctg\" OR host=\"*ctg*\" OR host.name=\"ctg\" OR host.name=\"*ctg*\" OR hostname=\"ctg\" OR hostname=\"*ctg*\" OR tag=\"ctg\" OR tag=\"*ctg*\" OR tags=\"ctg\" OR tags=\"*ctg*\" OR label=\"ctg\" OR label=\"*ctg*\" OR labels=\"ctg\" OR labels=\"*ctg*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "hazelcast": {
       "product": "hazelcast",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"hazelcast:log\" OR sourcetype=\"hazelcast\" ) product=\"hazelcast\" host=\"*hazelcast*\"",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "hazelcast",
+        "baseSearch": "(product=\"hazelcast\" OR product=\"*hazelcast*\" OR app=\"hazelcast\" OR app=\"*hazelcast*\" OR application=\"hazelcast\" OR application=\"*hazelcast*\" OR service=\"hazelcast\" OR service=\"*hazelcast*\" OR component=\"hazelcast\" OR component=\"*hazelcast*\" OR subsystem=\"hazelcast\" OR subsystem=\"*hazelcast*\" OR domain=\"hazelcast\" OR domain=\"*hazelcast*\" OR team=\"hazelcast\" OR team=\"*hazelcast*\" OR owner=\"hazelcast\" OR owner=\"*hazelcast*\" OR managed_by=\"hazelcast\" OR managed_by=\"*hazelcast*\" OR management_zone=\"hazelcast\" OR management_zone=\"*hazelcast*\" OR mz=\"hazelcast\" OR mz=\"*hazelcast*\" OR env=\"hazelcast\" OR env=\"*hazelcast*\" OR environment=\"hazelcast\" OR environment=\"*hazelcast*\" OR k8s.app=\"hazelcast\" OR k8s.app=\"*hazelcast*\" OR k8s.app.name=\"hazelcast\" OR k8s.app.name=\"*hazelcast*\" OR k8s.container.name=\"hazelcast\" OR k8s.container.name=\"*hazelcast*\" OR k8s.namespace.name=\"hazelcast\" OR k8s.namespace.name=\"*hazelcast*\" OR kubernetes.container_name=\"hazelcast\" OR kubernetes.container_name=\"*hazelcast*\" OR kubernetes.pod_name=\"hazelcast\" OR kubernetes.pod_name=\"*hazelcast*\" OR kubernetes.namespace=\"hazelcast\" OR kubernetes.namespace=\"*hazelcast*\" OR namespace=\"hazelcast\" OR namespace=\"*hazelcast*\" OR pod=\"hazelcast\" OR pod=\"*hazelcast*\" OR container=\"hazelcast\" OR container=\"*hazelcast*\" OR container_name=\"hazelcast\" OR container_name=\"*hazelcast*\" OR process_group=\"hazelcast\" OR process_group=\"*hazelcast*\" OR processGroup=\"hazelcast\" OR processGroup=\"*hazelcast*\" OR process.name=\"hazelcast\" OR process.name=\"*hazelcast*\" OR process=\"hazelcast\" OR process=\"*hazelcast*\" OR pg=\"hazelcast\" OR pg=\"*hazelcast*\" OR host=\"hazelcast\" OR host=\"*hazelcast*\" OR host.name=\"hazelcast\" OR host.name=\"*hazelcast*\" OR hostname=\"hazelcast\" OR hostname=\"*hazelcast*\" OR tag=\"hazelcast\" OR tag=\"*hazelcast*\" OR tags=\"hazelcast\" OR tags=\"*hazelcast*\" OR label=\"hazelcast\" OR label=\"*hazelcast*\" OR labels=\"hazelcast\" OR labels=\"*hazelcast*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"hazelcast\" OR app=\"hazelcast\" OR application=\"hazelcast\" OR service=\"hazelcast\" OR component=\"hazelcast\" OR subsystem=\"hazelcast\" OR domain=\"hazelcast\" OR team=\"hazelcast\" OR owner=\"hazelcast\" OR managed_by=\"hazelcast\" OR management_zone=\"hazelcast\" OR mz=\"hazelcast\" OR env=\"hazelcast\" OR environment=\"hazelcast\" OR k8s.app=\"hazelcast\" OR k8s.app.name=\"hazelcast\" OR k8s.container.name=\"hazelcast\" OR k8s.namespace.name=\"hazelcast\" OR kubernetes.container_name=\"hazelcast\" OR kubernetes.pod_name=\"hazelcast\" OR kubernetes.namespace=\"hazelcast\" OR namespace=\"hazelcast\" OR pod=\"hazelcast\" OR container=\"hazelcast\" OR container_name=\"hazelcast\" OR process_group=\"hazelcast\" OR processGroup=\"hazelcast\" OR process.name=\"hazelcast\" OR process=\"hazelcast\" OR pg=\"hazelcast\" OR host=\"hazelcast\" OR host.name=\"hazelcast\" OR hostname=\"hazelcast\" OR tag=\"hazelcast\" OR tags=\"hazelcast\" OR label=\"hazelcast\" OR labels=\"hazelcast\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"hazelcast\" OR product=\"*hazelcast*\" OR app=\"hazelcast\" OR app=\"*hazelcast*\" OR application=\"hazelcast\" OR application=\"*hazelcast*\" OR service=\"hazelcast\" OR service=\"*hazelcast*\" OR component=\"hazelcast\" OR component=\"*hazelcast*\" OR subsystem=\"hazelcast\" OR subsystem=\"*hazelcast*\" OR domain=\"hazelcast\" OR domain=\"*hazelcast*\" OR team=\"hazelcast\" OR team=\"*hazelcast*\" OR owner=\"hazelcast\" OR owner=\"*hazelcast*\" OR managed_by=\"hazelcast\" OR managed_by=\"*hazelcast*\" OR management_zone=\"hazelcast\" OR management_zone=\"*hazelcast*\" OR mz=\"hazelcast\" OR mz=\"*hazelcast*\" OR env=\"hazelcast\" OR env=\"*hazelcast*\" OR environment=\"hazelcast\" OR environment=\"*hazelcast*\" OR k8s.app=\"hazelcast\" OR k8s.app=\"*hazelcast*\" OR k8s.app.name=\"hazelcast\" OR k8s.app.name=\"*hazelcast*\" OR k8s.container.name=\"hazelcast\" OR k8s.container.name=\"*hazelcast*\" OR k8s.namespace.name=\"hazelcast\" OR k8s.namespace.name=\"*hazelcast*\" OR kubernetes.container_name=\"hazelcast\" OR kubernetes.container_name=\"*hazelcast*\" OR kubernetes.pod_name=\"hazelcast\" OR kubernetes.pod_name=\"*hazelcast*\" OR kubernetes.namespace=\"hazelcast\" OR kubernetes.namespace=\"*hazelcast*\" OR namespace=\"hazelcast\" OR namespace=\"*hazelcast*\" OR pod=\"hazelcast\" OR pod=\"*hazelcast*\" OR container=\"hazelcast\" OR container=\"*hazelcast*\" OR container_name=\"hazelcast\" OR container_name=\"*hazelcast*\" OR process_group=\"hazelcast\" OR process_group=\"*hazelcast*\" OR processGroup=\"hazelcast\" OR processGroup=\"*hazelcast*\" OR process.name=\"hazelcast\" OR process.name=\"*hazelcast*\" OR process=\"hazelcast\" OR process=\"*hazelcast*\" OR pg=\"hazelcast\" OR pg=\"*hazelcast*\" OR host=\"hazelcast\" OR host=\"*hazelcast*\" OR host.name=\"hazelcast\" OR host.name=\"*hazelcast*\" OR hostname=\"hazelcast\" OR hostname=\"*hazelcast*\" OR tag=\"hazelcast\" OR tag=\"*hazelcast*\" OR tags=\"hazelcast\" OR tags=\"*hazelcast*\" OR label=\"hazelcast\" OR label=\"*hazelcast*\" OR labels=\"hazelcast\" OR labels=\"*hazelcast*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"hazelcast\" OR product=\"*hazelcast*\" OR app=\"hazelcast\" OR app=\"*hazelcast*\" OR application=\"hazelcast\" OR application=\"*hazelcast*\" OR service=\"hazelcast\" OR service=\"*hazelcast*\" OR component=\"hazelcast\" OR component=\"*hazelcast*\" OR subsystem=\"hazelcast\" OR subsystem=\"*hazelcast*\" OR domain=\"hazelcast\" OR domain=\"*hazelcast*\" OR team=\"hazelcast\" OR team=\"*hazelcast*\" OR owner=\"hazelcast\" OR owner=\"*hazelcast*\" OR managed_by=\"hazelcast\" OR managed_by=\"*hazelcast*\" OR management_zone=\"hazelcast\" OR management_zone=\"*hazelcast*\" OR mz=\"hazelcast\" OR mz=\"*hazelcast*\" OR env=\"hazelcast\" OR env=\"*hazelcast*\" OR environment=\"hazelcast\" OR environment=\"*hazelcast*\" OR k8s.app=\"hazelcast\" OR k8s.app=\"*hazelcast*\" OR k8s.app.name=\"hazelcast\" OR k8s.app.name=\"*hazelcast*\" OR k8s.container.name=\"hazelcast\" OR k8s.container.name=\"*hazelcast*\" OR k8s.namespace.name=\"hazelcast\" OR k8s.namespace.name=\"*hazelcast*\" OR kubernetes.container_name=\"hazelcast\" OR kubernetes.container_name=\"*hazelcast*\" OR kubernetes.pod_name=\"hazelcast\" OR kubernetes.pod_name=\"*hazelcast*\" OR kubernetes.namespace=\"hazelcast\" OR kubernetes.namespace=\"*hazelcast*\" OR namespace=\"hazelcast\" OR namespace=\"*hazelcast*\" OR pod=\"hazelcast\" OR pod=\"*hazelcast*\" OR container=\"hazelcast\" OR container=\"*hazelcast*\" OR container_name=\"hazelcast\" OR container_name=\"*hazelcast*\" OR process_group=\"hazelcast\" OR process_group=\"*hazelcast*\" OR processGroup=\"hazelcast\" OR processGroup=\"*hazelcast*\" OR process.name=\"hazelcast\" OR process.name=\"*hazelcast*\" OR process=\"hazelcast\" OR process=\"*hazelcast*\" OR pg=\"hazelcast\" OR pg=\"*hazelcast*\" OR host=\"hazelcast\" OR host=\"*hazelcast*\" OR host.name=\"hazelcast\" OR host.name=\"*hazelcast*\" OR hostname=\"hazelcast\" OR hostname=\"*hazelcast*\" OR tag=\"hazelcast\" OR tag=\"*hazelcast*\" OR tags=\"hazelcast\" OR tags=\"*hazelcast*\" OR label=\"hazelcast\" OR label=\"*hazelcast*\" OR labels=\"hazelcast\" OR labels=\"*hazelcast*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"hazelcast\" OR product=\"*hazelcast*\" OR app=\"hazelcast\" OR app=\"*hazelcast*\" OR application=\"hazelcast\" OR application=\"*hazelcast*\" OR service=\"hazelcast\" OR service=\"*hazelcast*\" OR component=\"hazelcast\" OR component=\"*hazelcast*\" OR subsystem=\"hazelcast\" OR subsystem=\"*hazelcast*\" OR domain=\"hazelcast\" OR domain=\"*hazelcast*\" OR team=\"hazelcast\" OR team=\"*hazelcast*\" OR owner=\"hazelcast\" OR owner=\"*hazelcast*\" OR managed_by=\"hazelcast\" OR managed_by=\"*hazelcast*\" OR management_zone=\"hazelcast\" OR management_zone=\"*hazelcast*\" OR mz=\"hazelcast\" OR mz=\"*hazelcast*\" OR env=\"hazelcast\" OR env=\"*hazelcast*\" OR environment=\"hazelcast\" OR environment=\"*hazelcast*\" OR k8s.app=\"hazelcast\" OR k8s.app=\"*hazelcast*\" OR k8s.app.name=\"hazelcast\" OR k8s.app.name=\"*hazelcast*\" OR k8s.container.name=\"hazelcast\" OR k8s.container.name=\"*hazelcast*\" OR k8s.namespace.name=\"hazelcast\" OR k8s.namespace.name=\"*hazelcast*\" OR kubernetes.container_name=\"hazelcast\" OR kubernetes.container_name=\"*hazelcast*\" OR kubernetes.pod_name=\"hazelcast\" OR kubernetes.pod_name=\"*hazelcast*\" OR kubernetes.namespace=\"hazelcast\" OR kubernetes.namespace=\"*hazelcast*\" OR namespace=\"hazelcast\" OR namespace=\"*hazelcast*\" OR pod=\"hazelcast\" OR pod=\"*hazelcast*\" OR container=\"hazelcast\" OR container=\"*hazelcast*\" OR container_name=\"hazelcast\" OR container_name=\"*hazelcast*\" OR process_group=\"hazelcast\" OR process_group=\"*hazelcast*\" OR processGroup=\"hazelcast\" OR processGroup=\"*hazelcast*\" OR process.name=\"hazelcast\" OR process.name=\"*hazelcast*\" OR process=\"hazelcast\" OR process=\"*hazelcast*\" OR pg=\"hazelcast\" OR pg=\"*hazelcast*\" OR host=\"hazelcast\" OR host=\"*hazelcast*\" OR host.name=\"hazelcast\" OR host.name=\"*hazelcast*\" OR hostname=\"hazelcast\" OR hostname=\"*hazelcast*\" OR tag=\"hazelcast\" OR tag=\"*hazelcast*\" OR tags=\"hazelcast\" OR tags=\"*hazelcast*\" OR label=\"hazelcast\" OR label=\"*hazelcast*\" OR labels=\"hazelcast\" OR labels=\"*hazelcast*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     },
     "provenir": {
       "product": "provenir",
       "kpis": {},
+      "timeseries": {},
       "topEndpoints": [],
       "errorLog": [],
-      "_meta": {
-        "baseFilter": "index=\"main\" ( sourcetype=\"provenir:log\" OR sourcetype=\"provenir\" ) product=\"provenir\" host=\"*provenir*\"",
-        "timeRange": {
-          "earliest": "-15m",
-          "latest": "now"
-        }
+      "scope": {
+        "product": "provenir",
+        "baseSearch": "(product=\"provenir\" OR product=\"*provenir*\" OR app=\"provenir\" OR app=\"*provenir*\" OR application=\"provenir\" OR application=\"*provenir*\" OR service=\"provenir\" OR service=\"*provenir*\" OR component=\"provenir\" OR component=\"*provenir*\" OR subsystem=\"provenir\" OR subsystem=\"*provenir*\" OR domain=\"provenir\" OR domain=\"*provenir*\" OR team=\"provenir\" OR team=\"*provenir*\" OR owner=\"provenir\" OR owner=\"*provenir*\" OR managed_by=\"provenir\" OR managed_by=\"*provenir*\" OR management_zone=\"provenir\" OR management_zone=\"*provenir*\" OR mz=\"provenir\" OR mz=\"*provenir*\" OR env=\"provenir\" OR env=\"*provenir*\" OR environment=\"provenir\" OR environment=\"*provenir*\" OR k8s.app=\"provenir\" OR k8s.app=\"*provenir*\" OR k8s.app.name=\"provenir\" OR k8s.app.name=\"*provenir*\" OR k8s.container.name=\"provenir\" OR k8s.container.name=\"*provenir*\" OR k8s.namespace.name=\"provenir\" OR k8s.namespace.name=\"*provenir*\" OR kubernetes.container_name=\"provenir\" OR kubernetes.container_name=\"*provenir*\" OR kubernetes.pod_name=\"provenir\" OR kubernetes.pod_name=\"*provenir*\" OR kubernetes.namespace=\"provenir\" OR kubernetes.namespace=\"*provenir*\" OR namespace=\"provenir\" OR namespace=\"*provenir*\" OR pod=\"provenir\" OR pod=\"*provenir*\" OR container=\"provenir\" OR container=\"*provenir*\" OR container_name=\"provenir\" OR container_name=\"*provenir*\" OR process_group=\"provenir\" OR process_group=\"*provenir*\" OR processGroup=\"provenir\" OR processGroup=\"*provenir*\" OR process.name=\"provenir\" OR process.name=\"*provenir*\" OR process=\"provenir\" OR process=\"*provenir*\" OR pg=\"provenir\" OR pg=\"*provenir*\" OR host=\"provenir\" OR host=\"*provenir*\" OR host.name=\"provenir\" OR host.name=\"*provenir*\" OR hostname=\"provenir\" OR hostname=\"*provenir*\" OR tag=\"provenir\" OR tag=\"*provenir*\" OR tags=\"provenir\" OR tags=\"*provenir*\" OR label=\"provenir\" OR label=\"*provenir*\" OR labels=\"provenir\" OR labels=\"*provenir*\")",
+        "earliest": "-15m",
+        "latest": "now",
+        "discoverySelected": "stage4_no_index_emergency",
+        "discoveryStages": [
+          {
+            "name": "stage1_strict",
+            "baseSearch": "(index=main) (product=\"provenir\" OR app=\"provenir\" OR application=\"provenir\" OR service=\"provenir\" OR component=\"provenir\" OR subsystem=\"provenir\" OR domain=\"provenir\" OR team=\"provenir\" OR owner=\"provenir\" OR managed_by=\"provenir\" OR management_zone=\"provenir\" OR mz=\"provenir\" OR env=\"provenir\" OR environment=\"provenir\" OR k8s.app=\"provenir\" OR k8s.app.name=\"provenir\" OR k8s.container.name=\"provenir\" OR k8s.namespace.name=\"provenir\" OR kubernetes.container_name=\"provenir\" OR kubernetes.pod_name=\"provenir\" OR kubernetes.namespace=\"provenir\" OR namespace=\"provenir\" OR pod=\"provenir\" OR container=\"provenir\" OR container_name=\"provenir\" OR process_group=\"provenir\" OR processGroup=\"provenir\" OR process.name=\"provenir\" OR process=\"provenir\" OR pg=\"provenir\" OR host=\"provenir\" OR host.name=\"provenir\" OR hostname=\"provenir\" OR tag=\"provenir\" OR tags=\"provenir\" OR label=\"provenir\" OR labels=\"provenir\")"
+          },
+          {
+            "name": "stage2_wide",
+            "baseSearch": "(index=main) (product=\"provenir\" OR product=\"*provenir*\" OR app=\"provenir\" OR app=\"*provenir*\" OR application=\"provenir\" OR application=\"*provenir*\" OR service=\"provenir\" OR service=\"*provenir*\" OR component=\"provenir\" OR component=\"*provenir*\" OR subsystem=\"provenir\" OR subsystem=\"*provenir*\" OR domain=\"provenir\" OR domain=\"*provenir*\" OR team=\"provenir\" OR team=\"*provenir*\" OR owner=\"provenir\" OR owner=\"*provenir*\" OR managed_by=\"provenir\" OR managed_by=\"*provenir*\" OR management_zone=\"provenir\" OR management_zone=\"*provenir*\" OR mz=\"provenir\" OR mz=\"*provenir*\" OR env=\"provenir\" OR env=\"*provenir*\" OR environment=\"provenir\" OR environment=\"*provenir*\" OR k8s.app=\"provenir\" OR k8s.app=\"*provenir*\" OR k8s.app.name=\"provenir\" OR k8s.app.name=\"*provenir*\" OR k8s.container.name=\"provenir\" OR k8s.container.name=\"*provenir*\" OR k8s.namespace.name=\"provenir\" OR k8s.namespace.name=\"*provenir*\" OR kubernetes.container_name=\"provenir\" OR kubernetes.container_name=\"*provenir*\" OR kubernetes.pod_name=\"provenir\" OR kubernetes.pod_name=\"*provenir*\" OR kubernetes.namespace=\"provenir\" OR kubernetes.namespace=\"*provenir*\" OR namespace=\"provenir\" OR namespace=\"*provenir*\" OR pod=\"provenir\" OR pod=\"*provenir*\" OR container=\"provenir\" OR container=\"*provenir*\" OR container_name=\"provenir\" OR container_name=\"*provenir*\" OR process_group=\"provenir\" OR process_group=\"*provenir*\" OR processGroup=\"provenir\" OR processGroup=\"*provenir*\" OR process.name=\"provenir\" OR process.name=\"*provenir*\" OR process=\"provenir\" OR process=\"*provenir*\" OR pg=\"provenir\" OR pg=\"*provenir*\" OR host=\"provenir\" OR host=\"*provenir*\" OR host.name=\"provenir\" OR host.name=\"*provenir*\" OR hostname=\"provenir\" OR hostname=\"*provenir*\" OR tag=\"provenir\" OR tag=\"*provenir*\" OR tags=\"provenir\" OR tags=\"*provenir*\" OR label=\"provenir\" OR label=\"*provenir*\" OR labels=\"provenir\" OR labels=\"*provenir*\")"
+          },
+          {
+            "name": "stage3_ultra_wide_no_st_src_host",
+            "baseSearch": "(index=main) (product=\"provenir\" OR product=\"*provenir*\" OR app=\"provenir\" OR app=\"*provenir*\" OR application=\"provenir\" OR application=\"*provenir*\" OR service=\"provenir\" OR service=\"*provenir*\" OR component=\"provenir\" OR component=\"*provenir*\" OR subsystem=\"provenir\" OR subsystem=\"*provenir*\" OR domain=\"provenir\" OR domain=\"*provenir*\" OR team=\"provenir\" OR team=\"*provenir*\" OR owner=\"provenir\" OR owner=\"*provenir*\" OR managed_by=\"provenir\" OR managed_by=\"*provenir*\" OR management_zone=\"provenir\" OR management_zone=\"*provenir*\" OR mz=\"provenir\" OR mz=\"*provenir*\" OR env=\"provenir\" OR env=\"*provenir*\" OR environment=\"provenir\" OR environment=\"*provenir*\" OR k8s.app=\"provenir\" OR k8s.app=\"*provenir*\" OR k8s.app.name=\"provenir\" OR k8s.app.name=\"*provenir*\" OR k8s.container.name=\"provenir\" OR k8s.container.name=\"*provenir*\" OR k8s.namespace.name=\"provenir\" OR k8s.namespace.name=\"*provenir*\" OR kubernetes.container_name=\"provenir\" OR kubernetes.container_name=\"*provenir*\" OR kubernetes.pod_name=\"provenir\" OR kubernetes.pod_name=\"*provenir*\" OR kubernetes.namespace=\"provenir\" OR kubernetes.namespace=\"*provenir*\" OR namespace=\"provenir\" OR namespace=\"*provenir*\" OR pod=\"provenir\" OR pod=\"*provenir*\" OR container=\"provenir\" OR container=\"*provenir*\" OR container_name=\"provenir\" OR container_name=\"*provenir*\" OR process_group=\"provenir\" OR process_group=\"*provenir*\" OR processGroup=\"provenir\" OR processGroup=\"*provenir*\" OR process.name=\"provenir\" OR process.name=\"*provenir*\" OR process=\"provenir\" OR process=\"*provenir*\" OR pg=\"provenir\" OR pg=\"*provenir*\" OR host=\"provenir\" OR host=\"*provenir*\" OR host.name=\"provenir\" OR host.name=\"*provenir*\" OR hostname=\"provenir\" OR hostname=\"*provenir*\" OR tag=\"provenir\" OR tag=\"*provenir*\" OR tags=\"provenir\" OR tags=\"*provenir*\" OR label=\"provenir\" OR label=\"*provenir*\" OR labels=\"provenir\" OR labels=\"*provenir*\")"
+          },
+          {
+            "name": "stage4_no_index_emergency",
+            "baseSearch": "(product=\"provenir\" OR product=\"*provenir*\" OR app=\"provenir\" OR app=\"*provenir*\" OR application=\"provenir\" OR application=\"*provenir*\" OR service=\"provenir\" OR service=\"*provenir*\" OR component=\"provenir\" OR component=\"*provenir*\" OR subsystem=\"provenir\" OR subsystem=\"*provenir*\" OR domain=\"provenir\" OR domain=\"*provenir*\" OR team=\"provenir\" OR team=\"*provenir*\" OR owner=\"provenir\" OR owner=\"*provenir*\" OR managed_by=\"provenir\" OR managed_by=\"*provenir*\" OR management_zone=\"provenir\" OR management_zone=\"*provenir*\" OR mz=\"provenir\" OR mz=\"*provenir*\" OR env=\"provenir\" OR env=\"*provenir*\" OR environment=\"provenir\" OR environment=\"*provenir*\" OR k8s.app=\"provenir\" OR k8s.app=\"*provenir*\" OR k8s.app.name=\"provenir\" OR k8s.app.name=\"*provenir*\" OR k8s.container.name=\"provenir\" OR k8s.container.name=\"*provenir*\" OR k8s.namespace.name=\"provenir\" OR k8s.namespace.name=\"*provenir*\" OR kubernetes.container_name=\"provenir\" OR kubernetes.container_name=\"*provenir*\" OR kubernetes.pod_name=\"provenir\" OR kubernetes.pod_name=\"*provenir*\" OR kubernetes.namespace=\"provenir\" OR kubernetes.namespace=\"*provenir*\" OR namespace=\"provenir\" OR namespace=\"*provenir*\" OR pod=\"provenir\" OR pod=\"*provenir*\" OR container=\"provenir\" OR container=\"*provenir*\" OR container_name=\"provenir\" OR container_name=\"*provenir*\" OR process_group=\"provenir\" OR process_group=\"*provenir*\" OR processGroup=\"provenir\" OR processGroup=\"*provenir*\" OR process.name=\"provenir\" OR process.name=\"*provenir*\" OR process=\"provenir\" OR process=\"*provenir*\" OR pg=\"provenir\" OR pg=\"*provenir*\" OR host=\"provenir\" OR host=\"*provenir*\" OR host.name=\"provenir\" OR host.name=\"*provenir*\" OR hostname=\"provenir\" OR hostname=\"*provenir*\" OR tag=\"provenir\" OR tag=\"*provenir*\" OR tags=\"provenir\" OR tags=\"*provenir*\" OR label=\"provenir\" OR label=\"*provenir*\" OR labels=\"provenir\" OR labels=\"*provenir*\")"
+          }
+        ],
+        "discoveryProbe": [
+          {
+            "stage": "stage1_strict",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage2_wide",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage3_ultra_wide_no_st_src_host",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          },
+          {
+            "stage": "stage4_no_index_emergency",
+            "ok": false,
+            "error": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
+          }
+        ],
+        "discoveryNote": "No events found by probe. In PROD: adjust indexes/sourcetype/fieldCandidates/matchValue/keywords.",
+        "kpisError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "latencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesRpsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesLatencyError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "seriesErrorRateError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "topEndpointsError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor).",
+        "errorLogError": "[Splunk] fetch failed :: context=export url=https://SPLUNK_HOST:8089/services/search/jobs/export?output_mode=json :: message=fetch failed :: cause=ENOTFOUND getaddrinfo ENOTFOUND splunk_host :: hint=DNS/host resolve sorunu (Splunk host erişilemiyor)."
       }
     }
   },

@@ -2,21 +2,9 @@
 import React from "react";
 import DetailKpiCard from "./common/DetailKpiCard";
 import PlaceholderTable from "../performance_tabs/common/PlaceholderTable";
+import TimeSeriesChart from "./common/TimeSeriesChart";
 import PlaceholderDonutChart from "../performance_tabs/common/PlaceholderDonutChart";
-
-type EndpointRow = { name: string; count: number; avgMs?: number; p95Ms?: number; errors?: number };
-type ErrorLogRow = { ts: string; level: string; message: string };
-
-export type PerformancePayload = {
-  product: string;
-  kpis?: Record<string, any>;
-  topEndpoints?: EndpointRow[];
-  errorLog?: ErrorLogRow[];
-};
-
-interface Props {
-  payload?: PerformancePayload | null;
-}
+import { PerformanceDetailProps } from "../../src/api/performanceTypes";
 
 const fmt = (v: any) => {
   if (v === null || v === undefined || v === "") return "-";
@@ -24,7 +12,7 @@ const fmt = (v: any) => {
   return String(v);
 };
 
-const HttpdDetailContent: React.FC<Props> = ({ payload }) => {
+const HttpdDetailContent: React.FC<PerformanceDetailProps> = ({ payload }) => {
   const k = payload?.kpis || {};
   const endpoints = Array.isArray(payload?.topEndpoints) ? payload!.topEndpoints! : [];
   const logs = Array.isArray(payload?.errorLog) ? payload!.errorLog! : [];
@@ -52,6 +40,10 @@ const HttpdDetailContent: React.FC<Props> = ({ payload }) => {
         <PlaceholderDonutChart title="Worker Kullanımı" />
         <PlaceholderDonutChart title="HTTP Durum Kodları" />
       </div>
+
+      <TimeSeriesChart title="RPS Trend" points={payload?.timeseries?.rps} />
+      <TimeSeriesChart title="Latency Trend (ms)" points={payload?.timeseries?.latencyMs} />
+      <TimeSeriesChart title="Error Rate Trend (%)" points={payload?.timeseries?.errorRate} />
 
       <PlaceholderTable title="En Çok Kullanılan Endpoint’ler" headers={endpointHeaders} rows={endpointRows} />
       <PlaceholderTable title="Error Log Analizi" headers={errorLogHeaders} rows={errorLogRows} />

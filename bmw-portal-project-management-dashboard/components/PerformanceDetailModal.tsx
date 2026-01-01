@@ -9,7 +9,7 @@ import WebsphereDetailContent from "./performance_details/WebsphereDetailContent
 import CtgDetailContent from "./performance_details/CtgDetailContent";
 import HazelcastDetailContent from "./performance_details/HazelcastDetailContent";
 import ProvenirDetailContent from "./performance_details/ProvenirDetailContent";
-
+import ScopeDebugPanel from "./performance_details/common/ScopeDebugPanel";
 import { usePerformanceSnapshot } from "../src/hooks/usePerformanceSnapshot";
 
 interface PerformanceDetailModalProps {
@@ -40,14 +40,22 @@ const PerformanceDetailModal: React.FC<PerformanceDetailModalProps> = ({
 }) => {
   const productKey = useMemo(() => tabToProductKey(tab), [tab]);
 
-  const snap = usePerformanceSnapshot(isOpen ? productKey : null, {
+  // tab casing farklarından etkilenmeyelim
+  const tabKey = useMemo(() => (tab ? tab.toLowerCase().trim() : ""), [tab]);
+
+  // productKey yoksa hook'u koşturma
+  const snap = usePerformanceSnapshot(isOpen && productKey ? productKey : null, {
     intervalSeconds: 30,
-    enabled: isOpen,
+    enabled: isOpen && !!productKey,
   });
 
   if (!isOpen) return null;
 
   const renderContent = () => {
+    if (!productKey) {
+      return <p className="p-6">No detail available for this section.</p>;
+    }
+
     if (snap.loading) {
       return (
         <div className="p-6">
@@ -66,26 +74,27 @@ const PerformanceDetailModal: React.FC<PerformanceDetailModalProps> = ({
       );
     }
 
-    switch (tab) {
-      case "HTTPD":
+    // ✅ tüm tab’lara payload basıyoruz
+    switch (tabKey) {
+      case "httpd":
         return <HttpdDetailContent payload={snap.data} />;
 
-      case "NGINX":
+      case "nginx":
         return <NginxDetailContent payload={snap.data} />;
 
-      case "JBoss":
+      case "jboss":
         return <JbossDetailContent payload={snap.data} />;
 
-      case "WebSphere":
+      case "websphere":
         return <WebsphereDetailContent payload={snap.data} />;
 
-      case "CTG":
+      case "ctg":
         return <CtgDetailContent payload={snap.data} />;
 
-      case "Hazelcast":
+      case "hazelcast":
         return <HazelcastDetailContent payload={snap.data} />;
 
-      case "Provenir":
+      case "provenir":
         return <ProvenirDetailContent payload={snap.data} />;
 
       default:
@@ -124,7 +133,12 @@ const PerformanceDetailModal: React.FC<PerformanceDetailModalProps> = ({
           </button>
         </div>
 
-        <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 overflow-y-auto">{renderContent()}</div>
+        <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 overflow-y-auto space-y-6">
+          {renderContent()}
+
+          {/* ✅ Splunk/Dynatrace yokken bile scope+errors+planı göstermek için */}
+          <ScopeDebugPanel payload={snap.data} />
+        </div>
 
         <div className="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-gray-200">
           <button

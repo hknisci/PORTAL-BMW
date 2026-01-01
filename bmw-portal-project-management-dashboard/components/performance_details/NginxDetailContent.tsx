@@ -1,7 +1,7 @@
 import React from "react";
 import DetailKpiCard from "./common/DetailKpiCard";
 import PlaceholderTable from "../performance_tabs/common/PlaceholderTable";
-import PlaceholderChart from "../performance_tabs/common/PlaceholderChart";
+import TimeSeriesChart from "./common/TimeSeriesChart";
 import PlaceholderDonutChart from "../performance_tabs/common/PlaceholderDonutChart";
 import { PerformanceDetailProps } from "../../src/api/performanceTypes";
 
@@ -40,10 +40,22 @@ const NginxDetailContent: React.FC<PerformanceDetailProps> = ({ payload }) => {
         <PlaceholderDonutChart title="Upstream / Cache Breakdown" />
       </div>
 
-      <PlaceholderChart title="Traffic / Errors Trend" />
+      <TimeSeriesChart title="RPS Trend" points={payload?.timeseries?.rps} />
+      <TimeSeriesChart title="Latency Trend (ms)" points={payload?.timeseries?.latencyMs} />
+      <TimeSeriesChart title="Error Rate Trend (%)" points={payload?.timeseries?.errorRate} />
 
-      <PlaceholderTable title="Top Endpoints" headers={endpointHeaders} rows={endpointRows} />
-      <PlaceholderTable title="Error Log Analizi" headers={errorLogHeaders} rows={errorLogRows} />
+      <PlaceholderTable
+        title="Top Endpoints"
+        headers={endpointHeaders}
+        rows={endpointRows}
+        emptyMessage="No endpoints found"
+      />
+      <PlaceholderTable
+        title="Error Log Analizi"
+        headers={errorLogHeaders}
+        rows={errorLogRows}
+        emptyMessage="No error logs"
+      />
     </div>
   );
 };
