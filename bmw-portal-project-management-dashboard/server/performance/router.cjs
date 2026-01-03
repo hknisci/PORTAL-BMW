@@ -7,6 +7,23 @@ function createPerformanceRouter() {
   const router = express.Router();
   router.use(express.json({ limit: "2mb" }));
 
+  // ✅ GET /api/performance  (root)
+  router.get("/", (req, res) => {
+    res.json({
+      ok: true,
+      service: "performance",
+      endpoints: {
+        health: "/api/performance/health",
+        cache: "/api/performance/cache",
+        snapshot: "/api/performance/snapshot?product=<name>",
+        configGet: "/api/performance/config",
+        configPost: "/api/performance/config",
+        refresh: "/api/performance/refresh",
+        refreshAll: "/api/performance/refresh-all",
+      },
+    });
+  });
+
   // GET /api/performance/health
   router.get("/health", (req, res) => {
     res.json({ ok: true, service: "performance", scheduler: scheduler.status() });
@@ -17,7 +34,7 @@ function createPerformanceRouter() {
     res.json({ ok: true, cache: readCache() });
   });
 
-  // ✅ GET /api/performance/snapshot?product=httpd
+  // GET /api/performance/snapshot?product=httpd
   router.get("/snapshot", (req, res) => {
     const product = String(req.query.product || "").toLowerCase().trim();
     const cache = readCache();
@@ -47,13 +64,12 @@ function createPerformanceRouter() {
     const next = { ...current, ...incoming };
     writeConfig(next);
 
-    // config değişince scheduler restart
-    scheduler.start();
+    scheduler.start(); // config değişince scheduler restart
 
     res.json({ ok: true, config: next });
   });
 
-  // POST /api/performance/refresh  (manual refresh)
+  // POST /api/performance/refresh
   router.post("/refresh", async (req, res) => {
     const r = await scheduler.runOnce();
     const cache = readCache();
@@ -69,7 +85,6 @@ function createPerformanceRouter() {
   return router;
 }
 
-// hem factory hem hazır router export
 const performanceRouter = createPerformanceRouter();
 
 module.exports = {

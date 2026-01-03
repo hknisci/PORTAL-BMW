@@ -1,13 +1,57 @@
 // src/App.tsx
 import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+// Pages (mevcut yapın: root/components altında)
+import LoginPage from "@/components/LoginPage";
+import DashboardPage from "@/components/DashboardPage";
+import EnvanterPage from "@/components/EnvanterPage";
+import ImportantLinksPage from "@/components/ImportantLinksPage";
+import DutyRosterPage from "@/components/DutyRosterPage";
+import AskGTPage from "@/components/AskGTPage";
+import PerformancePage from "@/components/PerformancePage";
+import PageComponent from "@/components/PageComponent";
+
+import { PAGE_CONFIG } from "@/constants";
+
+// Route guards + layout (mevcut yapın: src altında)
+import ProtectedRoute from "./routes/ProtectedRoute";
+import AppLayout from "./layouts/AppLayout";
 
 export default function App() {
   return (
-    <div style={{ padding: 16, fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial" }}>
-      <h1 style={{ margin: 0, fontSize: 18 }}>BMW Portal Dashboard</h1>
-      <p style={{ marginTop: 8, color: "#6b7280" }}>
-        App entry is wired. Replace this component with your actual layout/router when ready.
-      </p>
-    </div>
+    <Routes>
+      {/* public */}
+      <Route path="/login" element={<LoginPage />} />
+
+      {/* protected */}
+      <Route element={<ProtectedRoute />}>
+        <Route element={<AppLayout />}>
+          {/* default */}
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+          {/* pages */}
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/envanter" element={<EnvanterPage />} />
+          <Route path="/important-links" element={<ImportantLinksPage />} />
+          <Route path="/duty-roster" element={<DutyRosterPage />} />
+          <Route path="/performance" element={<PerformancePage />} />
+          <Route path="/askgt" element={<AskGTPage />} />
+
+          {/* Placeholder pages (PageComponent ile) */}
+          <Route
+            path="/self-service"
+            element={<PageComponent title="Self Service" tabsConfig={PAGE_CONFIG["Self Service"].tabs} />}
+          />
+          <Route
+            path="/ansible"
+            element={<PageComponent title="Ansible" tabsConfig={PAGE_CONFIG["Ansible"].tabs} />}
+          />
+
+          {/* 404 */}
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }

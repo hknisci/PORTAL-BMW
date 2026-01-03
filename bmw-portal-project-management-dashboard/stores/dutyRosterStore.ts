@@ -1,5 +1,5 @@
 // src/stores/dutyRosterStore.ts
-import { ON_CALL_ROSTER_DATA } from "../constants";
+import { ON_CALL_ROSTER_DATA } from "@/constants";
 
 export type DutyRosterItem = {
   id: string;
