@@ -1,11 +1,10 @@
 // src/components/PageComponent.tsx
 import React from "react";
-import { PageTab } from "@/types";
+import type { PageTab } from "@/types";
 import Tabs from "./common/Tabs";
 
-import EvamListenerTab from "./self_service_tabs/EvamListenerTab";
-import DatasourceTanımlamaTab from "./self_service_tabs/DatasourceTanımlamaTab";
 import TemplatesTab from "./ansible_tabs/TemplatesTab";
+import SelfServicePage from "./SelfServicePage";
 
 interface PageComponentProps {
   title: string;
@@ -13,6 +12,11 @@ interface PageComponentProps {
 }
 
 const PageComponent: React.FC<PageComponentProps> = ({ title, tabsConfig }) => {
+  // ✅ Self Service artık kendi page component'inde çalışacak (eski self_service_tabs kaldırıldı)
+  if (title === "Self Service") {
+    return <SelfServicePage />;
+  }
+
   if (!tabsConfig || tabsConfig.length === 0) {
     return (
       <div className="bg-white p-6 rounded-xl shadow-sm">
@@ -27,31 +31,14 @@ const PageComponent: React.FC<PageComponentProps> = ({ title, tabsConfig }) => {
   const tabs = tabsConfig.map((tabConfig) => {
     let content: React.ReactNode;
 
-    if (title === "Self Service" && tabConfig.label === "Evam Listener Tanımlama") {
-      content = <EvamListenerTab />;
-    } else if (title === "Ansible" && tabConfig.label === "Templates") {
+    // ✅ Ansible -> Templates
+    if (title === "Ansible" && tabConfig.label === "Templates") {
       content = <TemplatesTab />;
-    } else if (tabConfig.nestedTabs) {
-      const nested = tabConfig.nestedTabs.map((nestedTab) => {
-        let nestedContent: React.ReactNode;
-
-        if (
-          title === "Self Service" &&
-          tabConfig.label === "Datasource" &&
-          nestedTab.label === "Datasource Tanımlama"
-        ) {
-          nestedContent = <DatasourceTanımlamaTab />;
-        } else {
-          nestedContent = (
-            <p className="text-gray-600">Content for {nestedTab.label}</p>
-          );
-        }
-
-        return {
-          label: nestedTab.label,
-          content: nestedContent,
-        };
-      });
+    } else if (tabConfig.nestedTabs?.length) {
+      const nested = tabConfig.nestedTabs.map((nestedTab) => ({
+        label: nestedTab.label,
+        content: <p className="text-gray-600">Content for {nestedTab.label}</p>,
+      }));
 
       content = <Tabs tabs={nested} nested={true} />;
     } else {

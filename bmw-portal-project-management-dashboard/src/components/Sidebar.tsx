@@ -1,5 +1,5 @@
 // src/components/Sidebar.tsx
-import React, { useState, useContext, useMemo } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Bars3Icon,

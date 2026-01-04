@@ -10,7 +10,7 @@ import AskGTPage from "@/components/AskGTPage";
 import PerformancePage from "@/components/PerformancePage";
 import PageComponent from "@/components/PageComponent";
 import ForbiddenPage from "@/components/ForbiddenPage";
-
+import SelfServicePage from "@/components/SelfServicePage";
 import { PAGE_CONFIG } from "@/constants";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
@@ -41,15 +41,7 @@ export default function App() {
           <Route path="/403" element={<ForbiddenPage />} />
 
           {/* Self Service */}
-          <Route
-            path="/self-service"
-            element={
-              <PageComponent
-                title="Self Service"
-                tabsConfig={PAGE_CONFIG["Self Service"].tabs}
-              />
-            }
-          />
+          <Route path="/self-service" element={<SelfServicePage />} />
 
           {/* ✅ Admin-only: Ansible */}
           <Route element={<AdminRoute />}>

@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "tabs": [
+    {
+      "id": "1767551588315-26cbcade688d9",
+      "name": "Smart",
+      "order": 1,
+      "subTabs": [
+        {
+          "id": "1767551602070-7aef84e1b41dd",
+          "name": "OCP",
+          "order": 1,
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "1767551637761-70491458dae8d",
+      "name": "NGINX",
+      "order": 2,
+      "subTabs": [
+        {
+          "id": "1767551667171-337f3073b34b08",
+          "name": "Create",
+          "order": 1,
+          "items": [
+            {
+              "id": "1767551717658-fbc51d71e63198",
+              "title": "CREATE RATE ZONE",
+              "order": 1,
+              "tabId": "1767551637761-70491458dae8d",
+              "subTabId": "1767551667171-337f3073b34b08",
+              "info": "ADSA",
+              "goUrl": "https://youtube.com",
+              "requestExample": "dasdlasn",
+              "details": "dasd",
+              "sample": {
+                "type": "text",
+                "value": "dasfas"
+              },
+              "extra": "dasdas"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

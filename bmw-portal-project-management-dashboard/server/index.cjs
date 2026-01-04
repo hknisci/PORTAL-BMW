@@ -8,6 +8,7 @@ const path = require("path");
 const { createApp } = require("./service.cjs");
 const { initPerformance } = require("./performance/index.cjs");
 const { initAnsible } = require("./ansible/index.cjs");
+const { initSelfService } = require("./selfservice/index.cjs");
 const PORT = Number(process.env.PORT || 5055);
 
 function main() {
@@ -268,6 +269,9 @@ function main() {
   /* ===================== ANSIBLE ===================== */
   
   initAnsible(app);
+  
+  /* ===================== SELF SERVICE ===================== */
+  initSelfService(app);
 
   /* ===================== SINGLE LISTEN ===================== */
 
