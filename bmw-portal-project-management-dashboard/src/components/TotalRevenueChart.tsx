@@ -1,6 +1,6 @@
 import React from 'react';
-import { Project, ProjectStatus } from '../types';
-
+import { Project, ProjectStatus } from "@/types";
+import { NavLink } from "react-router-dom";
 interface ActiveProjectsTableProps {
   projects: Project[];
 }
@@ -82,7 +82,12 @@ const ActiveProjectsTable: React.FC<ActiveProjectsTableProps> = ({ projects }) =
         </table>
       </div>
       <div className="text-center mt-4">
-        <a href="#" className="text-sm font-semibold text-green-600 hover:underline">View All Projects</a>
+        <NavLink
+          to="/projects"
+          className="text-sm font-semibold text-green-600 hover:underline"
+        >
+          View All Projects
+        </NavLink>
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
-// src/App.tsx
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-// Pages (mevcut yapın: root/components altında)
 import LoginPage from "@/components/LoginPage";
 import DashboardPage from "@/components/DashboardPage";
 import EnvanterPage from "@/components/EnvanterPage";
@@ -11,11 +9,12 @@ import DutyRosterPage from "@/components/DutyRosterPage";
 import AskGTPage from "@/components/AskGTPage";
 import PerformancePage from "@/components/PerformancePage";
 import PageComponent from "@/components/PageComponent";
+import ForbiddenPage from "@/components/ForbiddenPage";
 
 import { PAGE_CONFIG } from "@/constants";
 
-// Route guards + layout (mevcut yapın: src altında)
 import ProtectedRoute from "./routes/ProtectedRoute";
+import AdminRoute from "./routes/AdminRoute";
 import AppLayout from "./layouts/AppLayout";
 
 export default function App() {
@@ -38,15 +37,32 @@ export default function App() {
           <Route path="/performance" element={<PerformancePage />} />
           <Route path="/askgt" element={<AskGTPage />} />
 
-          {/* Placeholder pages (PageComponent ile) */}
+          {/* 403 */}
+          <Route path="/403" element={<ForbiddenPage />} />
+
+          {/* Self Service */}
           <Route
             path="/self-service"
-            element={<PageComponent title="Self Service" tabsConfig={PAGE_CONFIG["Self Service"].tabs} />}
+            element={
+              <PageComponent
+                title="Self Service"
+                tabsConfig={PAGE_CONFIG["Self Service"].tabs}
+              />
+            }
           />
-          <Route
-            path="/ansible"
-            element={<PageComponent title="Ansible" tabsConfig={PAGE_CONFIG["Ansible"].tabs} />}
-          />
+
+          {/* ✅ Admin-only: Ansible */}
+          <Route element={<AdminRoute />}>
+            <Route
+              path="/ansible"
+              element={
+                <PageComponent
+                  title="Ansible"
+                  tabsConfig={PAGE_CONFIG["Ansible"].tabs}
+                />
+              }
+            />
+          </Route>
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { XMarkIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline';
-import { KdbCertificate } from '../../types';
+import { KdbCertificate } from "@/types";
 
 interface CertWithStatus extends KdbCertificate {
     daysToExpiry: number;

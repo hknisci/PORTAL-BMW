@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { ChartDataItem } from '../types';
+import { ChartDataItem } from "@/types";
 import { SERVER_INVENTORY_DATA, APPLICATION_INVENTORY_DATA } from '@/constants';
 
 const StatsOverview: React.FC = () => {

@@ -2,9 +2,9 @@ import React, { useState, useMemo, useContext } from 'react';
 import { KDB_CERTIFICATE_DATA } from '@/constants';
 import { AuthContext } from '@/contexts/AuthContext';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
-import { KdbCertificate } from '../../types';
+import { KdbCertificate } from "@/types";
 import KdbCertificateDetailModal from './KdbCertificateDetailModal';
-
+import { openExternalUrl } from "@/utils/url";
 interface CertWithStatus extends KdbCertificate {
     daysToExpiry: number;
     status: 'Expired' | 'Expiring Soon' | 'Valid';
@@ -116,10 +116,7 @@ const KdbCertificateTab: React.FC = () => {
         const csvContent = [headers, ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "kdb_certificate_inventory.csv";
-        a.click();
+        openExternalUrl(url);
         URL.revokeObjectURL(url);
     };
     

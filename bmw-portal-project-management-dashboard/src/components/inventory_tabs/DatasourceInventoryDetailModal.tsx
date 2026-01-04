@@ -1,6 +1,6 @@
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { DatasourceInventory, DatasourceStatus } from '../../types';
+import { DatasourceInventory, DatasourceStatus } from "@/types";
 
 interface ModalProps {
     datasource: DatasourceInventory;

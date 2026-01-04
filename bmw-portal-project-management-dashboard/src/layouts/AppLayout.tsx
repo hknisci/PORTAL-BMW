@@ -4,12 +4,14 @@ import Sidebar from "@/components/Sidebar";
 import SessionTimeoutModal from "@/components/SessionTimeoutModal";
 import { AuthContext } from "@/contexts/AuthContext";
 
-function titleFromPath(pathname: string): string {
-  // sidebar highlight için id döndürüyoruz
+function titleFromPath(pathname: string, isAdmin: boolean): string {
   if (pathname.startsWith("/dashboard")) return "Dashboard";
   if (pathname.startsWith("/envanter")) return "Envanter";
   if (pathname.startsWith("/self-service")) return "Self Service";
-  if (pathname.startsWith("/ansible")) return "Ansible";
+
+  // ✅ admin değilse Ansible asla seçili görünmesin
+  if (pathname.startsWith("/ansible")) return isAdmin ? "Ansible" : "Dashboard";
+
   if (pathname.startsWith("/performance")) return "Performance";
   if (pathname.startsWith("/askgt")) return "AskGT";
   if (pathname.startsWith("/duty-roster")) return "Nöbet Listesi";
@@ -18,7 +20,6 @@ function titleFromPath(pathname: string): string {
 }
 
 function pathFromTitle(title: string): string {
-  // Sidebar onNavigate(title) -> route
   switch (title) {
     case "Dashboard":
       return "/dashboard";
@@ -45,9 +46,12 @@ export default function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { showTimeoutModal, extendSession, logout, countdown } = useContext(AuthContext);
+  const { user, showTimeoutModal, extendSession, logout, countdown } =
+    useContext(AuthContext);
 
-  const activeItem = titleFromPath(location.pathname);
+  const isAdmin = user?.role === "Admin";
+
+  const activeItem = titleFromPath(location.pathname, isAdmin);
 
   const handleNavigate = (title: string) => {
     navigate(pathFromTitle(title));

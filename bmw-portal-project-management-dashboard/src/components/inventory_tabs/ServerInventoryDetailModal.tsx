@@ -1,6 +1,6 @@
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { ServerInventory } from '../../types';
+import { ServerInventory } from "@/types";
 
 interface ModalProps {
     server: ServerInventory;

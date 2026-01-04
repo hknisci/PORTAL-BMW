@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useContext } from "react";
 import { APPLICATION_INVENTORY_DATA, SERVER_INVENTORY_DATA } from "@/constants";
-import { ApplicationInventory, ApplicationStatus, ServerInventory } from "../../types";
+import { ApplicationInventory, ApplicationStatus, ServerInventory } from "@/types";
+import { openExternalUrl } from "@/utils/url";
 import { AuthContext } from "@/contexts/AuthContext";
 import { 
   ArrowDownTrayIcon, 
@@ -121,10 +122,7 @@ const ApplicationInventoryTab = () => {
     const csvContent = [headers, ...rows].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "application_inventory.csv";
-    a.click();
+    openExternalUrl(url);
     URL.revokeObjectURL(url);
   };
 

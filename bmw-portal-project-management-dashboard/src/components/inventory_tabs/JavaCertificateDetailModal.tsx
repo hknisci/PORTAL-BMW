@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { XMarkIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline';
-import { JavaCertificate } from '../../types';
+import { JavaCertificate } from "@/types";
 
 interface CertWithStatus extends JavaCertificate {
     daysToExpiry: number;

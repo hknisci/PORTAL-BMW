@@ -2,8 +2,10 @@ import React, { useState, useMemo, useContext } from 'react';
 import { DATASOURCE_INVENTORY_DATA } from '@/constants';
 import { AuthContext } from '@/contexts/AuthContext';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
-import { DatasourceInventory, DatasourceStatus } from '../../types';
+import { DatasourceInventory, DatasourceStatus } from "@/types";
 import DatasourceInventoryDetailModal from './DatasourceInventoryDetailModal';
+import { openExternalUrl } from "@/utils/url";
+import { downloadBlob } from "@/utils/file";
 
 const EnvironmentBadge: React.FC<{ value: string }> = ({ value }) => {
   const colorMap: { [key: string]: string } = {
@@ -63,15 +65,11 @@ const DatasourceInventoryTab: React.FC = () => {
         );
         const csvContent = [headers, ...rows].join('\n');
         
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        link.href = url;
-        link.setAttribute('download', 'datasource_inventory.csv');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
+        downloadBlob(
+        csvContent,
+        "openshift_inventory.csv",
+        "text/csv;charset=utf-8;"
+        );
     };
 
     if (!data || data.length === 0) {

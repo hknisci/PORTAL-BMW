@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { KdbCertificate, JavaCertificate } from '../types';
+import { KdbCertificate, JavaCertificate } from "@/types";
 
 interface CertificateSummaryWidgetProps {
   data: (KdbCertificate | JavaCertificate)[];

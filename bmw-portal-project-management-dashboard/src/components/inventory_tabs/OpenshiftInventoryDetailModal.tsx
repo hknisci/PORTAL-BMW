@@ -1,6 +1,6 @@
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { OpenshiftInventory } from '../../types';
+import { OpenshiftInventory } from "@/types";
 
 interface ModalProps {
     cluster: OpenshiftInventory;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ASKGT_ARTICLES } from '@/constants';
-import { AskGTArticle } from '../types';
+import { AskGTArticle } from "@/types";
 import { 
   HeartIcon, 
   EyeIcon, 

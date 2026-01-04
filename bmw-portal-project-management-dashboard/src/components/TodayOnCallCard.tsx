@@ -1,6 +1,6 @@
 import React from 'react';
 import { ON_CALL_ROSTER_DATA } from '@/constants';
-import { OnCallPerson } from '../types';
+import { OnCallPerson } from "@/types";
 import { PhoneIcon, EnvelopeIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const TodayOnCallCard: React.FC = () => {

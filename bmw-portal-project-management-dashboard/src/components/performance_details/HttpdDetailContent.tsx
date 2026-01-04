@@ -4,7 +4,7 @@ import DetailKpiCard from "./common/DetailKpiCard";
 import PlaceholderTable from "../performance_tabs/common/PlaceholderTable";
 import TimeSeriesChart from "./common/TimeSeriesChart";
 import PlaceholderDonutChart from "../performance_tabs/common/PlaceholderDonutChart";
-import { PerformanceDetailProps } from "../@/api/performanceTypes";
+import { PerformanceDetailProps } from "@/api/performanceTypes";
 
 const fmt = (v: any) => {
   if (v === null || v === undefined || v === "") return "-";

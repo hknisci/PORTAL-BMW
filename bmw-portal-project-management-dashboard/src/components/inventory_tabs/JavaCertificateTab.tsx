@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useContext } from 'react';
 import { JAVA_CERTIFICATE_DATA } from '@/constants';
-import { JavaCertificate } from '../../types';
+import { JavaCertificate } from "@/types";
 import { AuthContext } from '@/contexts/AuthContext';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import JavaCertificateDetailModal from './JavaCertificateDetailModal';
-
+import { openExternalUrl } from "@/utils/url";
 interface CertWithStatus extends JavaCertificate {
     daysToExpiry: number;
     status: 'Expired' | 'Expiring Soon' | 'Valid';
@@ -103,10 +103,7 @@ const JavaCertificateTab: React.FC = () => {
         const csvContent = [headers, ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "java_certificate_inventory.csv";
-        a.click();
+        openExternalUrl(url);
         URL.revokeObjectURL(url);
     };
 

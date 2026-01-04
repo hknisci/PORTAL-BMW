@@ -7,7 +7,7 @@ const path = require("path");
 // IMPORTANT: createApp() tek app olacak. DutyRoster + AskGT + Performance bunun üstünde olacak.
 const { createApp } = require("./service.cjs");
 const { initPerformance } = require("./performance/index.cjs");
-
+const { initAnsible } = require("./ansible/index.cjs");
 const PORT = Number(process.env.PORT || 5055);
 
 function main() {
@@ -264,6 +264,10 @@ function main() {
 
   // ✅ mount performance module (/api/performance/*) ON THE SAME APP
   initPerformance(app);
+
+  /* ===================== ANSIBLE ===================== */
+  
+  initAnsible(app);
 
   /* ===================== SINGLE LISTEN ===================== */
 

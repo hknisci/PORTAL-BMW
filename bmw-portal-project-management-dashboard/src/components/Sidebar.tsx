@@ -1,10 +1,12 @@
-import React, { useState, useContext } from "react";
+// src/components/Sidebar.tsx
+import React, { useState, useContext, useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Bars3Icon,
   XMarkIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
+
 import { AuthContext } from "@/contexts/AuthContext";
 
 type NavItem = {
@@ -28,6 +30,14 @@ const Sidebar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
+  const isAdmin = user?.role === "Admin";
+
+  // ✅ admin değilse Ansible menüde görünmez
+  const visibleNavItems = navItems.filter((item) => {
+    if (item.id === "Ansible" && !isAdmin) return false;
+    return true;
+  });
+
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
       <div className="container mx-auto px-4">
@@ -41,7 +51,7 @@ const Sidebar: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex flex-1 justify-center">
             <ul className="flex items-center space-x-6 xl:space-x-8">
-              {navItems.map((item) => (
+              {visibleNavItems.map((item) => (
                 <NavLink
                   key={item.id}
                   to={item.to}
@@ -102,7 +112,7 @@ const Sidebar: React.FC = () => {
         <div className="lg:hidden bg-white border-t border-gray-200">
           <nav className="p-4">
             <ul className="space-y-1">
-              {navItems.map((item) => (
+              {visibleNavItems.map((item) => (
                 <li key={item.id}>
                   <NavLink
                     to={item.to}

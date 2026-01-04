@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import { SERVER_INVENTORY_DATA } from "@/constants";
-import { ServerInventory } from "../../types";
+import { ServerInventory } from "@/types";
 import { AuthContext } from "@/contexts/AuthContext";
 import { 
   ArrowDownTrayIcon, 
@@ -15,6 +15,7 @@ import {
   ClockIcon
 } from "@heroicons/react/24/outline";
 import ServerInventoryDetailModal from './ServerInventoryDetailModal';
+import { openExternalUrl } from "@/utils/url";
 
 const Badge: React.FC<{ value: ServerInventory['environment'] }> = ({ value }) => {
   const colorMap: Record<ServerInventory['environment'], string> = {
@@ -122,10 +123,7 @@ const ServerInventoryTab = () => {
     const csvContent = [headers, ...rows].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "server_inventory.csv";
-    a.click();
+    openExternalUrl(url);
     URL.revokeObjectURL(url);
   };
 

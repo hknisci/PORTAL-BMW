@@ -8,7 +8,7 @@ import {
   getAskGTArticles,
   upsertAskGTArticle,
 } from "@/api/askgtApi";
-
+import { openExternalUrl } from "@/utils/url";
 import {
   MagnifyingGlassIcon,
   HeartIcon,
@@ -477,7 +477,7 @@ const AskGTPage: React.FC = () => {
               onDelete={() => deleteArticle(article.id)}
               onReadMore={() => {
                 const url = article.sourceUrl || wikiUrlFromTitle(article.title);
-                window.open(url, "_blank", "noopener,noreferrer");
+                openExternalUrl(url);
               }}
               formatDate={formatDate}
             />

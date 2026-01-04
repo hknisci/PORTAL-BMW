@@ -1,4 +1,19 @@
-import { Project, PageConfig, ImportantLink, ServerInventory, ChartDataItem, ApplicationInventory, KdbCertificate, JavaCertificate, OpenshiftInventory, DatasourceInventory, OnCallPerson, AskGTArticle, AskGTCategory } from './types';
+import {
+  Project,
+  PageConfig,
+  ImportantLink,
+  ServerInventory,
+  ChartDataItem,
+  ApplicationInventory,
+  KdbCertificate,
+  JavaCertificate,
+  OpenshiftInventory,
+  DatasourceInventory,
+  OnCallPerson,
+  AskGTArticle,
+  AskGTCategory,
+  AnsibleTemplate,
+} from "@/types";
 
 export const TASKS_CHART_DATA: ChartDataItem[] = [
     { name: 'Pending', value: 23, color: '#FBBF24' }, // amber-400
@@ -651,4 +666,68 @@ export const ASKGT_ARTICLES: AskGTArticle[] = [
     thumbnailUrl: 'https://picsum.photos/seed/openshift-containers/400/200',
     isFavorite: false
   }
+];
+
+export const ANSIBLE_TEMPLATES: AnsibleTemplate[] = [
+  {
+    id: "oc-login-check",
+    name: "OCP Login + Namespace Check",
+    description: "oc login + namespace doğrulama + temel health kontrol iskeleti.",
+    tags: ["openshift", "login", "health"],
+    updatedAt: "2025-12-30",
+    owner: "Middleware",
+    content: `---
+- name: OCP Login + Namespace Check
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    oc_api: "https://api.example:6443"
+    oc_user: "user"
+    oc_pass: "pass"
+    oc_namespace: "default"
+
+  tasks:
+    - name: Login
+      ansible.builtin.shell: |
+        oc login {{ oc_api }} -u {{ oc_user }} -p {{ oc_pass }} --insecure-skip-tls-verify=true
+      register: login_out
+      changed_when: false
+
+    - name: Check namespace exists
+      ansible.builtin.shell: |
+        oc get ns {{ oc_namespace }}
+      register: ns_out
+      changed_when: false
+`,
+  },
+  {
+    id: "scale-deploy",
+    name: "Scale Deployment (Safe)",
+    description: "Deployment scale 0/restore (kaydet/geri dön) iskeleti.",
+    tags: ["k8s", "scale", "safe"],
+    updatedAt: "2025-12-31",
+    owner: "DevOps",
+    content: `---
+- name: Scale Deployment (Safe)
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    namespace: "payments"
+    deployment: "my-app"
+    replicas: 0
+
+  tasks:
+    - name: Get current replicas
+      ansible.builtin.shell: |
+        oc -n {{ namespace }} get deploy {{ deployment }} -o jsonpath='{.spec.replicas}'
+      register: current
+      changed_when: false
+
+    - name: Scale deployment
+      ansible.builtin.shell: |
+        oc -n {{ namespace }} scale deploy/{{ deployment }} --replicas={{ replicas }}
+`,
+  },
 ];

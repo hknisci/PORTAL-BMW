@@ -1,57 +1,71 @@
-import React from 'react';
-import { PageTab } from '../types';
-import Tabs from './common/Tabs';
-import EvamListenerTab from './self_service_tabs/EvamListenerTab';
-import DatasourceTanımlamaTab from './self_service_tabs/DatasourceTanımlamaTab';
+// src/components/PageComponent.tsx
+import React from "react";
+import { PageTab } from "@/types";
+import Tabs from "./common/Tabs";
+
+import EvamListenerTab from "./self_service_tabs/EvamListenerTab";
+import DatasourceTanımlamaTab from "./self_service_tabs/DatasourceTanımlamaTab";
+import TemplatesTab from "./ansible_tabs/TemplatesTab";
 
 interface PageComponentProps {
-    title: string;
-    tabsConfig: PageTab[];
+  title: string;
+  tabsConfig: PageTab[];
 }
 
 const PageComponent: React.FC<PageComponentProps> = ({ title, tabsConfig }) => {
-    if (!tabsConfig || tabsConfig.length === 0) {
-        return (
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
-                <p className="mt-2 text-gray-600">Content for this page will be available soon.</p>
-            </div>
-        );
-    }
+  if (!tabsConfig || tabsConfig.length === 0) {
+    return (
+      <div className="bg-white p-6 rounded-xl shadow-sm">
+        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+        <p className="mt-2 text-gray-600">
+          Content for this page will be available soon.
+        </p>
+      </div>
+    );
+  }
 
-    const tabs = tabsConfig.map(tabConfig => {
-        let content: React.ReactNode;
+  const tabs = tabsConfig.map((tabConfig) => {
+    let content: React.ReactNode;
 
-        if (title === 'Self Service' && tabConfig.label === 'Evam Listener Tanımlama') {
-            content = <EvamListenerTab />;
-        } else if (tabConfig.nestedTabs) {
-            const nested = tabConfig.nestedTabs.map(nestedTab => {
-                let nestedContent: React.ReactNode;
-                
-                if (title === 'Self Service' && tabConfig.label === 'Datasource' && nestedTab.label === 'Datasource Tanımlama') {
-                    nestedContent = <DatasourceTanımlamaTab />;
-                } else {
-                     nestedContent = <p className="text-gray-600">Content for {nestedTab.label}</p>;
-                }
+    if (title === "Self Service" && tabConfig.label === "Evam Listener Tanımlama") {
+      content = <EvamListenerTab />;
+    } else if (title === "Ansible" && tabConfig.label === "Templates") {
+      content = <TemplatesTab />;
+    } else if (tabConfig.nestedTabs) {
+      const nested = tabConfig.nestedTabs.map((nestedTab) => {
+        let nestedContent: React.ReactNode;
 
-                return {
-                    label: nestedTab.label,
-                    content: nestedContent
-                };
-            });
-            content = <Tabs tabs={nested} nested={true} />;
+        if (
+          title === "Self Service" &&
+          tabConfig.label === "Datasource" &&
+          nestedTab.label === "Datasource Tanımlama"
+        ) {
+          nestedContent = <DatasourceTanımlamaTab />;
         } else {
-            content = <p className="text-gray-600">Content for {tabConfig.label}</p>;
+          nestedContent = (
+            <p className="text-gray-600">Content for {nestedTab.label}</p>
+          );
         }
 
         return {
-            label: tabConfig.label,
-            count: tabConfig.count,
-            content: content
+          label: nestedTab.label,
+          content: nestedContent,
         };
-    });
+      });
 
-    return <Tabs tabs={tabs} />;
+      content = <Tabs tabs={nested} nested={true} />;
+    } else {
+      content = <p className="text-gray-600">Content for {tabConfig.label}</p>;
+    }
+
+    return {
+      label: tabConfig.label,
+      count: tabConfig.count,
+      content,
+    };
+  });
+
+  return <Tabs tabs={tabs} />;
 };
 
 export default PageComponent;

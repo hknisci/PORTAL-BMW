@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import Papa from "papaparse";
-
+import { openExternalUrl } from "@/utils/url";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   DutyRosterItem,
@@ -122,10 +122,7 @@ function currentMonthKey(): string {
 function downloadTextFile(filename: string, content: string, mime = "text/plain") {
   const blob = new Blob([content], { type: mime });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
+  openExternalUrl(url);
   URL.revokeObjectURL(url);
 }
 
